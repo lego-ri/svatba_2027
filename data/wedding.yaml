@@ -76,45 +76,8 @@ schedule:
     icon: "party"
 
 # ── Ubytování ────────────────────────────────────────────────
-# Typ ubytování: type (stan / auto / apartmán / pokoj / tp / místnost)
 accommodation:
-  description: "Ubytování je přímo na statku a v jeho okolí."
-  assignments:
-    - place: "Ve stanech"
-      type: "stan"
-      guests: ["Pepa", "Ondra", "Matěj"]
-
-    - place: "V autě"
-      type: "auto"
-      guests: ["Ričího rodiče"]
-
-    - place: "Apartmány naproti stodole — pokoj zvenku"
-      type: "apartmán"
-      guests: ["Petr"]
-
-    - place: "Pokoj 1"
-      type: "pokoj"
-      guests: ["Ivanka"]
-
-    - place: "Pokoj 2"
-      type: "pokoj"
-      guests: ["Děda"]
-
-    - place: "Kuchyňské apartmá"
-      type: "apartmán"
-      guests: ["Družičky"]
-
-    - place: "TP1"
-      type: "tp"
-      guests: ["Zelená parta"]
-
-    - place: "TP2"
-      type: "tp"
-      guests: ["Randomáci"]
-
-    - place: 'Nad stodolou — „chill místnost"'
-      type: "místnost"
-      guests: ["Party boys"]
+  description: "Spaní je ve stanech přímo na zahradě statku. Stany budou připravené na místě — stačí přijet a ubytovat se!"
 
 # ── Dress code ───────────────────────────────────────────────
 dress_code:
@@ -146,6 +109,20 @@ children:
 pets:
   allowed_with_consultation: true
   note: "Mazlíčky prosím pouze po předchozí domluvě s námi."
+
+# ── Aby vás nic nepřekvapilo ──────────────────────────────────
+# Praktické upozornění pro hosty — přidávejte položky do seznamu.
+surprises:
+  title: "Aby vás nic nepřekvapilo"
+  entries:
+    - icon: "🌧️"
+      title: "Obřad je venku"
+      description: "Obřad se koná pod širým nebem — v případě deště budeme mít připravené deštníky, nemusíte si nosit vlastní."
+
+    # Sem můžeš přidávat další položky, např.:
+    # - icon: "🔥"
+    #   title: "Večerní oheň"
+    #   description: "Na večer bude připravené ohniště — vezměte si teplejší vrstvu."
 
 # ── Kontakty na den D ────────────────────────────────────────
 # (Svědkové / koordinátoři — aby hosté nevolali novomanželům)

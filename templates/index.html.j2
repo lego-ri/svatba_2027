@@ -46,6 +46,7 @@
             <li><a href="#ubytovani">Ubytování</a></li>
             <li><a href="#dress-code">Dress code</a></li>
             <li><a href="#info">Info</a></li>
+            <li><a href="#pozor">Pozor!</a></li>
             <li><a href="#kontakt">Kontakt</a></li>
         </ul>
     </nav>
@@ -100,18 +101,8 @@
         {# ═══════════════════════════════════════════════ #}
         <section id="ubytovani" class="section">
             <h2>Ubytování</h2>
-            <p>{{ accommodation.description }}</p>
-            <div class="accommodation-grid">
-                {% for room in accommodation.assignments %}
-                <div class="accommodation-card" data-type="{{ room.type }}">
-                    <h3>{{ room.place }}</h3>
-                    <ul>
-                        {% for guest in room.guests %}
-                        <li>{{ guest }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                {% endfor %}
+            <div class="info-card">
+                <p>⛺ {{ accommodation.description }}</p>
             </div>
         </section>
 
@@ -144,6 +135,21 @@
             <div class="info-card">
                 <h3>🐾 Mazlíčci</h3>
                 <p>{{ pets.note }}</p>
+            </div>
+        </section>
+
+        {# ═══════════════════════════════════════════════ #}
+        {# ABY VÁS NIC NEPŘEKVAPILO                      #}
+        {# ═══════════════════════════════════════════════ #}
+        <section id="pozor" class="section">
+            <h2>{{ surprises.title }}</h2>
+            <div class="surprises-list">
+                {% for item in surprises.entries %}
+                <div class="info-card surprise-card">
+                    <h3>{{ item.icon }} {{ item.title }}</h3>
+                    <p>{{ item.description }}</p>
+                </div>
+                {% endfor %}
             </div>
         </section>
 
