@@ -88,13 +88,14 @@ dress_code:
 # ── Barevná paleta ───────────────────────────────────────────
 # Snadno upravitelné HEX kódy — stačí změnit hodnotu.
 colors:
-  primary:    "#2B4C8C"   # královská modrá (rámečky, nadpisy)
-  secondary:  "#F0D44F"   # teplá žlutá (gingham pozadí)
-  accent:     "#3B6CB0"   # světlejší modrá (akcenty, hover)
-  background: "#FFFDF7"   # teplé krémové pozadí
-  text:       "#2B2B2B"   # tmavě šedý text
-  text_light: "#FFFFFF"   # bílý text
-  border:     "#2B4C8C"   # modrá pro rámečky sekcí
+  primary:    "#2B4C8C"   # královská modrá (rámečky, nadpisy, tlačítka)
+  secondary:  "#E5A812"   # doplňková tmavší zlatavá žlutá
+  accent:     "#1B3B6F"   # hlubší modrá (hover stav tlačítek)
+  background: "#F0B824"   # plné, syté a tmavší žluté pozadí celého webu
+  card_bg:    "#FFFFFF"   # čisté bílé pozadí karet (vysoký kontrast a čitelnost)
+  text:       "#242424"   # tmavě šedý text pro odstavce
+  text_light: "#FFFFFF"   # bílý text (na modrých tlačítkách)
+  border:     "#2B4C8C"   # modrá pro rámečky a linky
 
 # ── Dary ─────────────────────────────────────────────────────
 gifts:
