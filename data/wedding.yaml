@@ -82,33 +82,33 @@ accommodation:
 # ── Dress code ───────────────────────────────────────────────
 dress_code:
   style: "Formální"
-  description: "Obřad i hostina jsou formální. Budeme moc rádi, pokud svůj oděv sladíte do jemných přírodních tónů."
+  description: "Obřad i hostina jsou formální. Budeme moc rádi, pokud svůj oděv sladíte do teplých přírodních a zlatavých tónů."
   terrain_warning: "Obřad se koná na trávníku — dámy, doporučujeme široké podpatky, klínky nebo pohodlnou společenskou obuv."
   palette:
-    - name: "Šalvěj"
-      hex: "#8E9E7C"
-    - name: "Olivová"
-      hex: "#56653E"
+    - name: "Zlatavá"
+      hex: "#D49514"
+    - name: "Máslová"
+      hex: "#FCE8A2"
     - name: "Terakota"
       hex: "#C68369"
     - name: "Písková"
-      hex: "#E2D7C5"
-    - name: "Kávová"
-      hex: "#6B5847"
+      hex: "#EADFCA"
+    - name: "Karamel"
+      hex: "#7A5C38"
 
 # ── Barevná paleta webu ──────────────────────────────────────
-# Přírodní, botanický styl podle předlohy (olivová, šalvěj, přírodní papír)
+# Teplý zlatavý / žlutý botanický styl
 colors:
-  primary:        "#36402C"   # hluboká lesní/olivová inkoustová (hlavní text a skript)
-  secondary:      "#5F6F48"   # teplá šalvějová / olivová zelená (podnadpisy, akcenty)
-  sage_light:     "#D5DDC9"   # světlý šalvějový tón (tlačítka, jemné podklady)
-  sage_hover:     "#BAC5AC"   # hover stav tlačítek
-  background:     "#FAF8F3"   # teplý přírodní papír (slonová kost / bavlněný papír)
-  page_backdrop:  "#56653E"   # olivový podklad stránky okolo pozvánky (na širších obrazovkách)
-  text:           "#36402C"   # text
-  text_muted:     "#6E7A60"   # tlumený text pro doplňující popisky
-  border:         "#E2E8D8"   # jemné linky a oddělovače
-  border_dark:    "#4A5736"   # tmavší linka pro rámeček odpočtu
+  primary:        "#4A3810"   # tmavý jantar / medový inkoust (čitelné texty a nadpisy)
+  secondary:      "#D49514"   # sytá zlatavá sluneční žlutá (akcenty, časy, aktivní prvky)
+  yellow_soft:    "#FCE8A2"   # jemná máslově žlutá (podklad tlačítek a odznáčků)
+  yellow_hover:   "#D49514"   # barva při najetí a výběru (se 100% bílým textem)
+  background:     "#FAF7F0"   # teplý přírodní papír (slonová kost / vanilka)
+  page_backdrop:  "#C89838"   # teplé zlatavě okrové pozadí okolo pozvánky na PC
+  text:           "#4A3810"   # hlavní text
+  text_muted:     "#7E6534"   # tlumený teplý text pro doplňující popisky
+  border:         "#EADFCA"   # jemné linky a oddělovače
+  border_dark:    "#C48A10"   # tmavší linka pro rámeček odpočtu
 
 # ── Dary ─────────────────────────────────────────────────────
 gifts:

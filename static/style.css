@@ -1,7 +1,7 @@
 /* ═══════════════════════════════════════════════════════════
    Kačí & Ričí — Svatba 2027
-   Vizuál: Přírodní botanický line-art styl podle předlohy
-   Olivový podklad · Přírodní papír (slonová kost) · Autentický rukopis Caveat & jemný Montserrat
+   Vizuál: Teplý zlatavý / žlutý botanický line-art styl
+   Zlatavě okrový podklad · Teplý přírodní papír · Autentický rukopis Caveat & Montserrat
    ═══════════════════════════════════════════════════════════ */
 
 /* ── Reset & Base ──────────────────────────────────────── */
@@ -14,13 +14,13 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
-    background-color: var(--color-backdrop, #56653E);
+    background-color: var(--color-backdrop, #C89838);
 }
 
 body {
     font-family: 'Montserrat', sans-serif;
-    color: var(--color-text, #36402C);
-    background-color: var(--color-backdrop, #56653E);
+    color: var(--color-text, #4A3810);
+    background-color: var(--color-backdrop, #C89838);
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
@@ -37,18 +37,18 @@ a {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    background-color: var(--color-backdrop, #56653E);
+    background-color: var(--color-backdrop, #C89838);
     padding: 0;
 }
 
 .invite-canvas {
     max-width: 480px;
     width: 100%;
-    background-color: var(--color-bg, #FAF8F3);
+    background-color: var(--color-bg, #FAF7F0);
     min-height: 100vh;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
     position: relative;
-    /* DŮLEŽITÉ: Žádný overflow: hidden, aby position: sticky na liště fungoval na desktopu */
+    box-sizing: border-box;
 }
 
 /* ── Sekce ────────────────────────────────────────────── */
@@ -58,22 +58,26 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* ── Hlavička (Hero) — dokonale vycentrovaná ───────────── */
 .hero-section {
-    padding: 3.5rem 1.4rem 2rem;
+    padding: 3.8rem 1.4rem 2rem;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .hero__names {
     font-family: 'Caveat', cursive;
     font-size: clamp(3rem, 11vw, 4.4rem);
     font-weight: 700;
-    color: var(--color-primary, #36402C);
+    color: var(--color-primary, #4A3810);
     line-height: 1.15;
     margin: 0 auto 0.8rem;
     text-align: center;
@@ -82,14 +86,14 @@ a {
 
 .hero__names .amp {
     font-weight: 400;
-    color: var(--color-secondary, #5F6F48);
+    color: var(--color-secondary, #D49514);
     font-size: 0.85em;
     padding: 0 0.2em;
 }
 
 .hero__illustration {
     margin: 0.8rem auto 1.4rem;
-    max-width: 220px;
+    max-width: 210px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -98,7 +102,7 @@ a {
 
 .hero__illustration img {
     width: 100%;
-    max-width: 200px;
+    max-width: 190px;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -107,62 +111,69 @@ a {
 .hero__intro {
     font-size: 0.95rem;
     line-height: 1.8;
-    color: var(--color-text-muted, #6E7A60);
+    color: var(--color-text-muted, #7E6534);
     max-width: 340px;
     margin: 0 auto;
     text-align: center;
     font-weight: 300;
 }
 
-/* ── Sticky Navigace (funguje plynule na PC i mobilu) ───── */
+/* ── Sticky Navigace (přesně lícuje s kontejnerem, obsah se vejde) ── */
 .nav {
     position: sticky;
     top: 0;
     z-index: 999;
-    background-color: rgba(250, 248, 243, 0.98);
+    background-color: rgba(250, 247, 240, 0.98);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border-top: 1px solid var(--color-border, #E2E8D8);
-    border-bottom: 1.5px solid rgba(95, 111, 72, 0.25);
-    box-shadow: 0 4px 14px rgba(54, 64, 44, 0.05);
+    border-top: 1px solid var(--color-border, #EADFCA);
+    border-bottom: 1.5px solid rgba(212, 149, 20, 0.3);
+    box-shadow: 0 3px 12px rgba(74, 56, 16, 0.06);
     width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .nav ul {
     display: flex;
-    justify-content: center;
-    gap: 0.25rem;
+    justify-content: space-between;
+    align-items: center;
     list-style: none;
-    padding: 0.6rem 0.6rem;
-    max-width: 480px;
-    margin: 0 auto;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    padding: 0.5rem 0.5rem;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+    gap: 2px;
 }
 
-.nav ul::-webkit-scrollbar {
-    display: none;
+.nav li {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
 }
 
 .nav a {
-    white-space: nowrap;
-    padding: 0.35rem 0.75rem;
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.35rem 0.2rem;
     border-radius: 9999px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.74rem;
+    font-size: 0.72rem;
     font-weight: 500;
-    letter-spacing: 0.04em;
-    color: var(--color-primary, #36402C);
+    letter-spacing: 0.02em;
+    color: var(--color-primary, #4A3810);
     background-color: transparent;
     transition: all 0.2s ease;
-    display: inline-block;
+    white-space: nowrap;
 }
 
-/* Když je sekce vybraná (aktivní / najetí myší) -> tmavě zelené pozadí a BÍLÝ text */
+/* Když je sekce vybraná (aktivní / hover) -> sytě žluté/zlaté pozadí a BÍLÝ text */
 .nav a:hover,
 .nav a.active {
-    background-color: var(--color-secondary, #5F6F48) !important;
+    background-color: var(--color-secondary, #D49514) !important;
     color: #FFFFFF !important;
     font-weight: 600;
 }
@@ -172,7 +183,7 @@ a {
     font-family: 'Caveat', cursive;
     font-size: 2.8rem;
     font-weight: 700;
-    color: var(--color-primary, #36402C);
+    color: var(--color-primary, #4A3810);
     margin-bottom: 0.8rem;
     line-height: 1.2;
     text-align: center;
@@ -183,20 +194,20 @@ a {
     font-family: 'Caveat', cursive;
     font-size: 2.2rem;
     font-weight: 700;
-    color: var(--color-secondary, #5F6F48);
+    color: var(--color-secondary, #D49514);
     margin-bottom: 0.4rem;
     line-height: 1.2;
     text-align: center;
 }
 
-/* ── Line-art ikony v sekcích ─────────────────────────── */
+/* ── Line-art ikony v sekcích (zlatavý tón) ────────────── */
 .section-icon {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0.4rem auto 1.2rem;
-    color: var(--color-primary, #36402C);
-    opacity: 0.9;
+    color: var(--color-secondary, #D49514);
+    opacity: 0.95;
 }
 
 /* ── Kreslené dělicí vlnovky ───────────────────────────── */
@@ -204,8 +215,8 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--color-secondary, #5F6F48);
-    opacity: 0.55;
+    color: var(--color-secondary, #D49514);
+    opacity: 0.6;
     margin: 0.5rem auto;
 }
 
@@ -213,7 +224,7 @@ a {
 .section-text {
     font-size: 0.94rem;
     line-height: 1.8;
-    color: var(--color-text, #36402C);
+    color: var(--color-text, #4A3810);
     max-width: 360px;
     margin: 0 auto 1.4rem;
     font-weight: 300;
@@ -223,7 +234,7 @@ a {
 .section-text-sm {
     font-size: 0.88rem;
     line-height: 1.7;
-    color: var(--color-text-muted, #6E7A60);
+    color: var(--color-text-muted, #7E6534);
     max-width: 340px;
     margin: 0 auto 0.8rem;
     font-weight: 300;
@@ -232,7 +243,7 @@ a {
 
 .lead-text {
     font-size: 1rem;
-    color: var(--color-primary, #36402C);
+    color: var(--color-primary, #4A3810);
 }
 
 .venue-name {
@@ -240,7 +251,7 @@ a {
     font-size: 1.55rem;
     font-weight: 600;
     letter-spacing: 0.04em;
-    color: var(--color-primary, #36402C);
+    color: var(--color-secondary, #D49514);
     margin-bottom: 0.4rem;
     text-align: center;
 }
@@ -248,7 +259,7 @@ a {
 .sub-block {
     margin-top: 1.8rem;
     padding-top: 1.4rem;
-    border-top: 1px dashed rgba(95, 111, 72, 0.2);
+    border-top: 1px dashed rgba(212, 149, 20, 0.25);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -261,12 +272,12 @@ a {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--color-secondary, #5F6F48);
+    color: var(--color-primary, #4A3810);
     margin-bottom: 0.5rem;
     text-align: center;
 }
 
-/* ── Tlačítka (šalvějová oválná, při hoveru sytá zelená a BÍLÝ text) ── */
+/* ── Tlačítka (máslově žlutá, při najetí sytě zlatá a BÍLÝ text) ── */
 .btn {
     display: inline-block;
     font-family: 'Montserrat', sans-serif;
@@ -283,27 +294,27 @@ a {
 .btn--pill {
     padding: 0.7rem 1.8rem;
     border-radius: 9999px;
-    background-color: var(--color-sage-light, #D5DDC9);
-    color: var(--color-primary, #36402C);
+    background-color: var(--color-yellow-soft, #FCE8A2);
+    color: var(--color-primary, #4A3810);
 }
 
-/* VŠECHNA TLAČÍTKA: při najetí či kliknutí -> zelený podklad a BÍLÝ text */
+/* VŠECHNA TLAČÍTKA: při najetí či kliknutí -> sytě zlatá a BÍLÝ text */
 .btn--pill:hover,
 .btn--pill:active {
-    background-color: var(--color-secondary, #5F6F48) !important;
+    background-color: var(--color-secondary, #D49514) !important;
     color: #FFFFFF !important;
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(54, 64, 44, 0.2);
+    box-shadow: 0 4px 12px rgba(212, 149, 20, 0.3);
 }
 
 .btn--sm {
     font-size: 0.76rem;
     padding: 0.55rem 1.4rem;
-    background-color: rgba(213, 221, 201, 0.7);
+    background-color: rgba(252, 232, 162, 0.75);
 }
 .btn--sm:hover,
 .btn--sm:active {
-    background-color: var(--color-secondary, #5F6F48) !important;
+    background-color: var(--color-secondary, #D49514) !important;
     color: #FFFFFF !important;
 }
 
@@ -336,7 +347,7 @@ a {
 
 .timeline__item {
     padding: 1.2rem 0;
-    border-bottom: 1px dashed rgba(95, 111, 72, 0.2);
+    border-bottom: 1px dashed rgba(212, 149, 20, 0.25);
 }
 .timeline__item:first-child {
     padding-top: 0;
@@ -349,10 +360,10 @@ a {
 .timeline__time {
     display: block;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1.25rem;
     letter-spacing: 0.06em;
-    color: var(--color-primary, #36402C);
+    color: var(--color-secondary, #D49514);
     margin-bottom: 0.2rem;
 }
 
@@ -360,13 +371,13 @@ a {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.25rem;
     font-weight: 600;
-    color: var(--color-secondary, #5F6F48);
+    color: var(--color-primary, #4A3810);
     margin-bottom: 0.2rem;
 }
 
 .timeline__body p {
     font-size: 0.86rem;
-    color: var(--color-text-muted, #6E7A60);
+    color: var(--color-text-muted, #7E6534);
     line-height: 1.5;
     font-weight: 300;
 }
@@ -375,7 +386,7 @@ a {
 .warning-note {
     font-size: 0.88rem;
     font-style: italic;
-    color: var(--color-text-muted, #6E7A60);
+    color: var(--color-text-muted, #7E6534);
     max-width: 340px;
     margin: 1rem auto 1.6rem;
     line-height: 1.6;
@@ -385,7 +396,7 @@ a {
 .color-palette {
     margin-top: 1.6rem;
     padding-top: 1.4rem;
-    border-top: 1px dashed rgba(95, 111, 72, 0.2);
+    border-top: 1px dashed rgba(212, 149, 20, 0.25);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -396,7 +407,7 @@ a {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-size: 0.95rem;
-    color: var(--color-text-muted, #6E7A60);
+    color: var(--color-text-muted, #7E6534);
     margin-bottom: 1rem;
     text-align: center;
 }
@@ -421,12 +432,12 @@ a {
     border-radius: 50%;
     display: inline-block;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
-    border: 2px solid #FAF8F3;
+    border: 2px solid #FAF7F0;
 }
 
 .color-palette__name {
     font-size: 0.68rem;
-    color: var(--color-text-muted, #6E7A60);
+    color: var(--color-text-muted, #7E6534);
     font-weight: 400;
 }
 
@@ -445,7 +456,7 @@ a {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.25rem;
     font-weight: 600;
-    color: var(--color-secondary, #5F6F48);
+    color: var(--color-secondary, #D49514);
     margin-bottom: 0.4rem;
     text-align: center;
 }
@@ -468,7 +479,7 @@ a {
     width: 100%;
     max-width: 280px;
     padding-bottom: 1.4rem;
-    border-bottom: 1px dashed rgba(95, 111, 72, 0.2);
+    border-bottom: 1px dashed rgba(212, 149, 20, 0.25);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -481,7 +492,7 @@ a {
 .contact-name {
     font-family: 'Caveat', cursive;
     font-size: 2.2rem;
-    color: var(--color-primary, #36402C);
+    color: var(--color-primary, #4A3810);
     margin-bottom: 0.1rem;
 }
 
@@ -490,7 +501,7 @@ a {
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--color-text-muted, #6E7A60);
+    color: var(--color-text-muted, #7E6534);
     margin-bottom: 0.75rem;
 }
 
@@ -507,10 +518,10 @@ a {
 }
 
 .countdown-frame {
-    border: 1.5px dashed var(--color-secondary, #5F6F48);
+    border: 1.5px dashed var(--color-secondary, #D49514);
     border-radius: 16px;
     padding: 2.2rem 1rem;
-    background-color: rgba(213, 221, 201, 0.22);
+    background-color: rgba(252, 232, 162, 0.35);
     position: relative;
     width: 100%;
     max-width: 360px;
@@ -522,7 +533,7 @@ a {
     font-family: 'Caveat', cursive;
     font-size: 2.4rem;
     font-weight: 700;
-    color: var(--color-primary, #36402C);
+    color: var(--color-primary, #4A3810);
     margin-bottom: 1.4rem;
     text-align: center;
 }
@@ -545,7 +556,7 @@ a {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.6rem;
     font-weight: 600;
-    color: var(--color-primary, #36402C);
+    color: var(--color-primary, #4A3810);
     line-height: 1.1;
 }
 
@@ -553,15 +564,15 @@ a {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-size: 0.82rem;
-    color: var(--color-text-muted, #6E7A60);
+    color: var(--color-text-muted, #7E6534);
     margin-top: 0.3rem;
 }
 
 .countdown-sep {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.3rem;
-    color: var(--color-secondary, #5F6F48);
-    opacity: 0.5;
+    color: var(--color-secondary, #D49514);
+    opacity: 0.6;
     margin-bottom: 1rem;
 }
 
@@ -573,8 +584,8 @@ a {
 .closing-heart {
     display: flex;
     justify-content: center;
-    color: var(--color-primary, #36402C);
-    opacity: 0.85;
+    color: var(--color-secondary, #D49514);
+    opacity: 0.9;
     margin-bottom: 1rem;
 }
 
@@ -582,7 +593,7 @@ a {
     font-family: 'Caveat', cursive;
     font-size: 2.6rem;
     font-weight: 700;
-    color: var(--color-primary, #36402C);
+    color: var(--color-primary, #4A3810);
     margin-bottom: 0.4rem;
     text-align: center;
 }
@@ -591,7 +602,7 @@ a {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.05rem;
     letter-spacing: 0.08em;
-    color: var(--color-text-muted, #6E7A60);
+    color: var(--color-text-muted, #7E6534);
     margin-bottom: 1.8rem;
     text-align: center;
 }
@@ -605,7 +616,7 @@ a {
 }
 
 .btn--primary {
-    background-color: var(--color-secondary, #5F6F48);
+    background-color: var(--color-secondary, #D49514);
     color: #FFFFFF !important;
     padding: 0.8rem 2rem;
     width: 100%;
@@ -613,21 +624,21 @@ a {
 
 .btn--primary:hover,
 .btn--primary:active {
-    background-color: var(--color-primary, #36402C) !important;
+    background-color: var(--color-primary, #4A3810) !important;
     color: #FFFFFF !important;
     transform: translateY(-2px);
-    box-shadow: 0 4px 14px rgba(54, 64, 44, 0.25);
+    box-shadow: 0 4px 14px rgba(212, 149, 20, 0.35);
 }
 
 /* ── Zápatí ───────────────────────────────────────────── */
 .footer {
     text-align: center;
     padding: 2.5rem 1.5rem;
-    border-top: 1px solid var(--color-border, #E2E8D8);
+    border-top: 1px solid var(--color-border, #EADFCA);
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-size: 0.95rem;
-    color: var(--color-text-muted, #6E7A60);
+    color: var(--color-text-muted, #7E6534);
 }
 
 /* ── Mobilní responzivita (< 520px) ───────────────────── */
@@ -655,12 +666,13 @@ a {
         font-size: 2.4rem;
     }
     .nav ul {
-        justify-content: flex-start;
-        padding: 0.55rem 0.5rem;
+        padding: 0.45rem 0.3rem;
+        gap: 1px;
     }
     .nav a {
-        font-size: 0.7rem;
-        padding: 0.3rem 0.65rem;
+        font-size: 0.68rem;
+        padding: 0.3rem 0.15rem;
+        letter-spacing: 0;
     }
     .countdown-frame {
         padding: 1.8rem 0.8rem;
@@ -671,5 +683,11 @@ a {
     }
     .countdown-item {
         min-width: 44px;
+    }
+}
+
+@media (max-width: 370px) {
+    .nav a {
+        font-size: 0.62rem;
     }
 }
