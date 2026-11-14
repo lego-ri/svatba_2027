@@ -18,14 +18,17 @@
     {# ── Barevná paleta jako CSS custom properties ── #}
     <style>
         :root {
-            --color-primary:    {{ colors.primary }};
-            --color-secondary:  {{ colors.secondary }};
-            --color-accent:     {{ colors.accent }};
-            --color-bg:         {{ colors.background }};
-            --color-card-bg:    {{ colors.card_bg }};
-            --color-text:       {{ colors.text }};
-            --color-text-light: {{ colors.text_light }};
-            --color-border:     {{ colors.border }};
+            --color-primary:        {{ colors.primary }};
+            --color-secondary:      {{ colors.secondary }};
+            --color-yellow-bright:  {{ colors.yellow_bright }};
+            --color-accent:         {{ colors.accent }};
+            --color-bg:             {{ colors.background }};
+            --color-card-bg:        {{ colors.card_bg }};
+            --color-text:           {{ colors.text }};
+            --color-text-dark:      {{ colors.text_dark }};
+            --color-text-light:     {{ colors.text_light }};
+            --color-border:         {{ colors.border }};
+            --color-border-yellow:  {{ colors.border_yellow }};
         }
     </style>
     <link rel="stylesheet" href="static/style.css">
@@ -39,7 +42,7 @@
         <div class="hero-wrapper">
             <div class="card-frame hero-card">
                 <p class="hero__label">Svatba</p>
-                <h1 class="hero__names">{{ couple.name_a }} &amp; {{ couple.name_b }}</h1>
+                <h1 class="hero__names">{{ couple.name_a }} <span class="amp">&amp;</span> {{ couple.name_b }}</h1>
                 <div class="hero__divider"></div>
                 <p class="hero__date">{{ wedding.date | czech_date }}</p>
                 <p class="hero__time">{{ wedding.time }}</p>
@@ -207,7 +210,7 @@
     {# FOOTER                                         #}
     {# ═══════════════════════════════════════════════ #}
     <footer class="footer">
-        <p class="footer__names">{{ couple.name_a }} &amp; {{ couple.name_b }}</p>
+        <p class="footer__names">{{ couple.name_a }} <span class="amp">&amp;</span> {{ couple.name_b }}</p>
         <p class="footer__date">{{ wedding.date | czech_date }} · {{ venue.name }}</p>
     </footer>
 

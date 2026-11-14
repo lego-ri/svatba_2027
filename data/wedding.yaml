@@ -88,14 +88,17 @@ dress_code:
 # ── Barevná paleta ───────────────────────────────────────────
 # Snadno upravitelné HEX kódy — stačí změnit hodnotu.
 colors:
-  primary:    "#2B4C8C"   # královská modrá (rámečky, nadpisy, tlačítka)
-  secondary:  "#E5A812"   # doplňková tmavší zlatavá žlutá
-  accent:     "#1B3B6F"   # hlubší modrá (hover stav tlačítek)
-  background: "#F0B824"   # plné, syté a tmavší žluté pozadí celého webu
-  card_bg:    "#FFFFFF"   # čisté bílé pozadí karet (vysoký kontrast a čitelnost)
-  text:       "#242424"   # tmavě šedý text pro odstavce
-  text_light: "#FFFFFF"   # bílý text (na modrých tlačítkách)
-  border:     "#2B4C8C"   # modrá pro rámečky a linky
+  primary:        "#2B4C8C"   # královská modrá (hlavní nadpisy, text, rámečky)
+  secondary:      "#D49206"   # sytá zlatavá žlutá (pro čitelný žlutý text na bílé: časy, akcenty)
+  yellow_bright:  "#F0B824"   # zářivá žlutá (linky, vnitřní rámečky, tlačítka)
+  accent:         "#1B3B6F"   # hlubší modrá (hover stav tlačítek)
+  background:     "#FFFFFF"   # čisté bílé pozadí webu
+  card_bg:        "#FFFFFF"   # čisté bílé pozadí karet
+  text:           "#2B4C8C"   # modrá barva textu (nebo tmavá modrá pro dokonalý soulad)
+  text_dark:      "#222222"   # neutrální tmavý text pro delší odstavce
+  text_light:     "#FFFFFF"   # bílý text (na plných tlačítkách)
+  border:         "#2B4C8C"   # modrá pro vnější rámečky
+  border_yellow:  "#F0B824"   # žlutá pro vnitřní dekorativní rámečky
 
 # ── Dary ─────────────────────────────────────────────────────
 gifts:

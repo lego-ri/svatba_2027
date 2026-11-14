@@ -1,7 +1,7 @@
 /* ═══════════════════════════════════════════════════════════
    Kačí & Ričí — Svatba 2027
-   Středomořský svatební styl (inspirace: Amalfi / Dolce Vita):
-   Svislé sytě žluté a bílé pruhy · Bílé karty s dvojitým modrým rámečkem · Elegantní typografie
+   Středomořský svatební styl:
+   Čisté bílé pozadí · Text a detaily v královské modré a zlatavé žluté · Elegantní typografie
    ═══════════════════════════════════════════════════════════ */
 
 /* ── Reset & Base ──────────────────────────────────────── */
@@ -16,22 +16,11 @@ html {
     font-size: 16px;
 }
 
-:root {
-    --stripe-width: 28px;
-}
-
-/* ── Pozadí: Svislé sytě žluté a bílé pruhy přes celý web ── */
+/* ── Pozadí: Čistě bílé přes celý web ─────────────────── */
 body {
     font-family: 'Lora', 'Georgia', serif;
     color: var(--color-text);
-    background-color: var(--color-bg);
-    background-image: repeating-linear-gradient(
-        90deg,
-        var(--color-bg) 0px,
-        var(--color-bg) var(--stripe-width),
-        #FFFFFF var(--stripe-width),
-        #FFFFFF calc(var(--stripe-width) * 2)
-    );
+    background-color: var(--color-bg, #FFFFFF);
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
 }
@@ -42,9 +31,9 @@ a {
     transition: all 0.2s ease;
 }
 
-/* ── Hero sekce ───────────────────────────────────────── */
+/* ── Hero sekce (čisté bílé pozadí) ───────────────────── */
 .hero-section {
-    background: transparent;
+    background-color: var(--color-bg, #FFFFFF);
     min-height: 100vh;
     min-height: 100dvh;
     display: flex;
@@ -54,24 +43,24 @@ a {
 }
 
 .hero-wrapper {
-    max-width: 480px;
+    max-width: 490px;
     width: 100%;
 }
 
 .hero-card {
     text-align: center;
-    padding: 3.5rem 2.2rem;
+    padding: 3.6rem 2.4rem;
 }
 
 .hero__label {
     font-family: 'Playfair Display', serif;
     font-size: 0.85rem;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.3em;
     color: var(--color-primary);
     margin-bottom: 0.8rem;
-    opacity: 0.85;
+    opacity: 0.9;
 }
 
 .hero__names {
@@ -83,36 +72,46 @@ a {
     margin-bottom: 0.8rem;
 }
 
+.hero__names .amp {
+    color: var(--color-secondary);
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 0.85em;
+    padding: 0 0.15em;
+}
+
 .hero__divider {
-    width: 50px;
-    height: 1.5px;
-    background: var(--color-primary);
-    margin: 0.5rem auto 1.4rem;
-    opacity: 0.45;
+    width: 55px;
+    height: 2px;
+    background: var(--color-yellow-bright);
+    margin: 0.6rem auto 1.4rem;
+    border-radius: 2px;
 }
 
 .hero__date {
     font-family: 'Playfair Display', serif;
-    font-size: 1.55rem;
+    font-size: 1.6rem;
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-secondary);
     letter-spacing: 0.06em;
     margin-bottom: 0.2rem;
 }
 
 .hero__time {
     font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
+    font-weight: 600;
     color: var(--color-primary);
     letter-spacing: 0.08em;
     margin-bottom: 0.4rem;
-    opacity: 0.85;
+    opacity: 0.9;
 }
 
 .hero__venue {
+    font-family: 'Lora', serif;
     font-size: 1.05rem;
-    color: var(--color-text);
-    opacity: 0.8;
+    color: var(--color-primary);
+    opacity: 0.75;
     margin-bottom: 2rem;
 }
 
@@ -120,25 +119,25 @@ a {
     margin-top: 1.5rem;
 }
 
-/* ── Rozvržení sekcí (průhledné, aby pruhy prosvítaly) ──── */
+/* ── Rozvržení sekcí ──────────────────────────────────── */
 .section {
     max-width: 620px;
     margin: 0 auto;
-    padding: 2rem 1.5rem;
-    background: transparent;
+    padding: 2.4rem 1.5rem;
+    background-color: var(--color-bg, #FFFFFF);
 }
 
-/* ── Bílé karty s dvojitým modrým rámečkem ────────────── */
+/* ── Bílé karty s modro-žlutým dvojitým rámečkem ──────── */
 .card-frame {
     background-color: var(--color-card-bg, #FFFFFF);
     border: 2.5px solid var(--color-border);
     border-radius: 8px;
-    padding: 2.6rem 2.2rem;
+    padding: 2.8rem 2.2rem;
     position: relative;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 6px 26px rgba(43, 76, 140, 0.07);
 }
 
-/* Vnitřní tenký ozdobný rámeček (efekt ručního rámečku) */
+/* Vnitřní žlutý ozdobný rámeček */
 .card-frame::before {
     content: '';
     position: absolute;
@@ -146,13 +145,13 @@ a {
     left: 6px;
     right: 6px;
     bottom: 6px;
-    border: 1px solid var(--color-border);
+    border: 1.5px solid var(--color-border-yellow);
     border-radius: 5px;
-    opacity: 0.45;
     pointer-events: none;
+    opacity: 0.85;
 }
 
-/* ── Nadpisy sekcí ────────────────────────────────────── */
+/* ── Nadpisy sekcí (modrá barva se žlutou linkou) ─────── */
 .section-title {
     font-family: 'Playfair Display', 'Georgia', serif;
     font-size: 1.45rem;
@@ -168,11 +167,11 @@ a {
 .section-title::after {
     content: '';
     display: block;
-    width: 44px;
-    height: 1.5px;
-    background: var(--color-primary);
+    width: 48px;
+    height: 2px;
+    background: var(--color-yellow-bright);
     margin: 0.65rem auto 0;
-    opacity: 0.45;
+    border-radius: 2px;
 }
 
 .sub-heading {
@@ -183,34 +182,35 @@ a {
     letter-spacing: 0.1em;
     color: var(--color-primary);
     text-align: center;
-    margin: 1.6rem 0 0.8rem;
+    margin: 1.8rem 0 0.8rem;
 }
 
 .section-text {
     text-align: center;
     font-size: 0.98rem;
     line-height: 1.8;
-    color: var(--color-text);
+    color: var(--color-primary);
+    opacity: 0.9;
     margin-bottom: 1.2rem;
 }
 
 .venue-highlight {
     font-family: 'Playfair Display', serif;
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--color-primary);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-secondary);
     margin-bottom: 0.4rem;
 }
 
 .card-subdivider {
     width: 60px;
-    height: 1px;
-    background: var(--color-border);
-    opacity: 0.25;
+    height: 1.5px;
+    background: var(--color-yellow-bright);
+    opacity: 0.6;
     margin: 1.8rem auto;
 }
 
-/* ── Oválná tlačítka (Pill buttons dle předlohy) ──────── */
+/* ── Oválná tlačítka (Pill buttons) ──────────────────── */
 .btn {
     display: inline-block;
     font-family: 'Playfair Display', serif;
@@ -232,18 +232,20 @@ a {
 .btn--primary {
     background-color: var(--color-primary);
     color: var(--color-text-light);
+    border-color: var(--color-primary);
 }
 .btn--primary:hover {
-    background-color: var(--color-accent);
-    border-color: var(--color-accent);
-    color: var(--color-text-light);
+    background-color: var(--color-yellow-bright);
+    border-color: var(--color-yellow-bright);
+    color: var(--color-primary);
     transform: translateY(-1px);
-    box-shadow: 0 4px 14px rgba(43, 76, 140, 0.25);
+    box-shadow: 0 4px 14px rgba(240, 184, 36, 0.35);
 }
 
 .btn--outline {
     background-color: #FFFFFF;
     color: var(--color-primary);
+    border-color: var(--color-primary);
 }
 .btn--outline:hover {
     background-color: var(--color-primary);
@@ -252,15 +254,17 @@ a {
     box-shadow: 0 4px 14px rgba(43, 76, 140, 0.2);
 }
 
-/* ── Sticky Navigace (plné sytě žluté pozadí) ──────────── */
+/* ── Sticky Navigace (čistě bílá s modrým a žlutým akcentem) ── */
 .nav {
     position: sticky;
     top: 0;
     z-index: 100;
-    background-color: var(--color-bg);
-    border-top: 1.5px solid var(--color-border);
+    background-color: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-top: 1.5px solid var(--color-yellow-bright);
     border-bottom: 2px solid var(--color-border);
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 12px rgba(43, 76, 140, 0.06);
 }
 .nav ul {
     display: flex;
@@ -292,14 +296,14 @@ a {
     text-decoration: none;
 }
 
-/* ── Harmonogram dne (Timeline) ───────────────────────── */
+/* ── Harmonogram dne: Žluté časy + modré názvy ────────── */
 .timeline {
     text-align: center;
 }
 
 .timeline__item {
     padding: 1.4rem 0;
-    border-bottom: 1px solid rgba(43, 76, 140, 0.14);
+    border-bottom: 1px solid rgba(43, 76, 140, 0.12);
 }
 .timeline__item:first-child {
     padding-top: 0.4rem;
@@ -313,25 +317,26 @@ a {
     display: block;
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.55rem;
     letter-spacing: 0.05em;
-    color: var(--color-primary);
+    color: var(--color-secondary); /* sytá čitelná zlatavá žlutá */
     margin-bottom: 0.25rem;
 }
 
 .timeline__body h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.02rem;
+    font-size: 1.05rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--color-text);
+    color: var(--color-primary);
     margin-bottom: 0.2rem;
 }
 
 .timeline__body p {
-    font-size: 0.9rem;
-    color: #666;
+    font-size: 0.92rem;
+    color: var(--color-primary);
+    opacity: 0.75;
     max-width: 380px;
     margin: 0 auto;
 }
@@ -348,9 +353,9 @@ a {
 /* ── Dress code sekce ─────────────────────────────────── */
 .dress-code__style {
     font-family: 'Dancing Script', cursive;
-    font-size: 2.3rem;
+    font-size: 2.4rem;
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-secondary); /* žlutý akcent */
     text-align: center;
     margin-bottom: 0.6rem;
 }
@@ -360,16 +365,17 @@ a {
     text-align: center;
     margin-top: 1.4rem;
     padding: 0.9rem 1.2rem;
-    border: 1px dashed var(--color-border);
+    border: 1px dashed var(--color-border-yellow);
     border-radius: 6px;
     background-color: #FFFDF7;
+    color: var(--color-primary);
 }
 
 /* ── Praktické informace ──────────────────────────────── */
 .info-item {
     text-align: center;
     padding: 1.4rem 0;
-    border-bottom: 1px solid rgba(43, 76, 140, 0.14);
+    border-bottom: 1px solid rgba(43, 76, 140, 0.12);
 }
 .info-item:first-child {
     padding-top: 0.2rem;
@@ -381,7 +387,7 @@ a {
 
 .info-item h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.05rem;
+    font-size: 1.08rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -390,8 +396,10 @@ a {
 }
 
 .info-item p {
-    font-size: 0.94rem;
+    font-size: 0.95rem;
     line-height: 1.7;
+    color: var(--color-primary);
+    opacity: 0.85;
     max-width: 440px;
     margin: 0 auto;
 }
@@ -400,7 +408,7 @@ a {
 .surprise-item {
     text-align: center;
     padding: 1.4rem 0;
-    border-bottom: 1px solid rgba(43, 76, 140, 0.14);
+    border-bottom: 1px solid rgba(43, 76, 140, 0.12);
 }
 .surprise-item:first-child {
     padding-top: 0.2rem;
@@ -412,7 +420,7 @@ a {
 
 .surprise-item h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.05rem;
+    font-size: 1.08rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -421,8 +429,10 @@ a {
 }
 
 .surprise-item p {
-    font-size: 0.94rem;
+    font-size: 0.95rem;
     line-height: 1.7;
+    color: var(--color-primary);
+    opacity: 0.85;
     max-width: 440px;
     margin: 0 auto;
 }
@@ -431,7 +441,8 @@ a {
 .contacts-intro {
     margin-bottom: 2rem;
     font-style: italic;
-    opacity: 0.85;
+    color: var(--color-primary);
+    opacity: 0.8;
 }
 
 .contacts {
@@ -446,7 +457,7 @@ a {
     width: 100%;
     max-width: 280px;
     padding-bottom: 1.4rem;
-    border-bottom: 1px solid rgba(43, 76, 140, 0.14);
+    border-bottom: 1px solid rgba(43, 76, 140, 0.12);
 }
 .contact-card:last-child {
     border-bottom: none;
@@ -455,17 +466,18 @@ a {
 
 .contact-card h3 {
     font-family: 'Dancing Script', cursive;
-    font-size: 1.9rem;
-    color: var(--color-primary);
+    font-size: 2rem;
+    color: var(--color-secondary); /* žlutá jména svědků */
     margin-bottom: 0.1rem;
 }
 
 .contact-card__role {
     font-family: 'Playfair Display', serif;
-    font-size: 0.74rem;
+    font-size: 0.76rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: #777;
+    color: var(--color-primary);
+    opacity: 0.8;
     margin-bottom: 0.75rem;
 }
 
@@ -473,15 +485,23 @@ a {
 .footer {
     text-align: center;
     padding: 3rem 1.5rem;
-    background-color: var(--color-bg);
-    border-top: 2px solid var(--color-border);
+    background-color: var(--color-bg, #FFFFFF);
+    border-top: 1.5px solid var(--color-yellow-bright);
 }
 
 .footer__names {
     font-family: 'Dancing Script', cursive;
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     color: var(--color-primary);
     margin-bottom: 0.2rem;
+}
+
+.footer__names .amp {
+    color: var(--color-secondary);
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 0.85em;
+    padding: 0 0.15em;
 }
 
 .footer__date {
@@ -489,25 +509,23 @@ a {
     font-size: 0.82rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #555;
+    color: var(--color-primary);
+    opacity: 0.7;
 }
 
 /* ── Mobilní responzivita ─────────────────────────────── */
 @media (max-width: 600px) {
-    :root {
-        --stripe-width: 20px;
-    }
     .section {
-        padding: 1.5rem 1rem;
+        padding: 1.6rem 1rem;
     }
     .card-frame {
-        padding: 2rem 1.3rem;
+        padding: 2.2rem 1.4rem;
     }
     .hero-card {
-        padding: 2.5rem 1.4rem;
+        padding: 2.8rem 1.5rem;
     }
     .hero__names {
-        font-size: 2.8rem;
+        font-size: 2.9rem;
     }
     .nav ul {
         justify-content: flex-start;
