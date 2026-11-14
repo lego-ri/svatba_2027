@@ -9,6 +9,11 @@
     <meta name="robots" content="noindex, nofollow">
     {% endif %}
 
+    <!-- Google Fonts: Playfair Display + Dancing Script + Lora (with latin-ext) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
     {# ── Barevná paleta jako CSS custom properties ── #}
     <style>
         :root {
@@ -18,6 +23,7 @@
             --color-bg:         {{ colors.background }};
             --color-text:       {{ colors.text }};
             --color-text-light: {{ colors.text_light }};
+            --color-border:     {{ colors.border }};
         }
     </style>
     <link rel="stylesheet" href="static/style.css">
@@ -27,12 +33,19 @@
     {# ═══════════════════════════════════════════════ #}
     {# HERO SECTION                                   #}
     {# ═══════════════════════════════════════════════ #}
-    <header id="hero" class="section hero">
-        <div class="hero__content">
-            <h1 class="hero__names">{{ couple.name_a }} <span>&amp;</span> {{ couple.name_b }}</h1>
-            <p class="hero__date">{{ wedding.date | czech_date }}</p>
-            <p class="hero__venue">{{ venue.name }}</p>
-            <a href="{{ _ics_file }}" class="btn btn--primary" download>📅 Přidat do kalendáře</a>
+    <header id="hero" class="hero-stripes">
+        <div class="hero-wrapper">
+            <div class="card-frame hero-card">
+                <p class="hero__label">Svatba</p>
+                <h1 class="hero__names">{{ couple.name_a }} &amp; {{ couple.name_b }}</h1>
+                <div class="hero__divider"></div>
+                <p class="hero__date">{{ wedding.date | czech_date }}</p>
+                <p class="hero__time">{{ wedding.time }}</p>
+                <p class="hero__venue">{{ venue.name }}</p>
+                <div class="hero__action">
+                    <a href="{{ _ics_file }}" class="btn btn--pill btn--primary" download>Přidat do kalendáře</a>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -46,7 +59,7 @@
             <li><a href="#ubytovani">Ubytování</a></li>
             <li><a href="#dress-code">Dress code</a></li>
             <li><a href="#info">Info</a></li>
-            <li><a href="#pozor">Pozor!</a></li>
+            <li><a href="#pozor">Důležité</a></li>
             <li><a href="#kontakt">Kontakt</a></li>
         </ul>
     </nav>
@@ -57,99 +70,119 @@
         {# HARMONOGRAM                                    #}
         {# ═══════════════════════════════════════════════ #}
         <section id="program" class="section">
-            <h2>Program dne</h2>
-            <div class="timeline">
-                {% for event in schedule %}
-                <div class="timeline__item" data-icon="{{ event.icon }}">
-                    <span class="timeline__time">{{ event.time }}</span>
-                    <div class="timeline__body">
-                        <h3>{{ event.title }}</h3>
-                        {% if event.description %}
-                        <p>{{ event.description }}</p>
-                        {% endif %}
+            <div class="card-frame">
+                <h2 class="section-title">Program dne</h2>
+                <div class="timeline">
+                    {% for event in schedule %}
+                    <div class="timeline__item">
+                        <span class="timeline__time">{{ event.time }}</span>
+                        <div class="timeline__body">
+                            <h3>{{ event.title }}</h3>
+                            {% if event.description %}
+                            <p>{{ event.description }}</p>
+                            {% endif %}
+                        </div>
                     </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
         </section>
 
         {# ═══════════════════════════════════════════════ #}
         {# MÍSTO & PARKOVÁNÍ                              #}
         {# ═══════════════════════════════════════════════ #}
-        <section id="misto" class="section">
-            <h2>Místo konání</h2>
-            <p>{{ venue.description }}</p>
-            <h3>{{ venue.name }}</h3>
-            <div class="map-links">
-                <a href="{{ venue.maps.google }}" target="_blank" rel="noopener" class="btn btn--outline">📍 Google Maps</a>
-                <a href="{{ venue.maps.mapy_cz }}" target="_blank" rel="noopener" class="btn btn--outline">🗺️ Mapy.cz</a>
-            </div>
+        <section id="misto" class="section-spacer gingham">
+            <div class="section-inner">
+                <div class="card-frame">
+                    <h2 class="section-title">Místo konání</h2>
+                    <p class="section-text venue-highlight">{{ venue.name }}</p>
+                    <p class="section-text">{{ venue.description }}</p>
+                    <div class="map-links">
+                        <a href="{{ venue.maps.google }}" target="_blank" rel="noopener" class="btn btn--pill btn--outline">Google Maps</a>
+                        <a href="{{ venue.maps.mapy_cz }}" target="_blank" rel="noopener" class="btn btn--pill btn--outline">Mapy.cz</a>
+                    </div>
 
-            <h3>Parkování</h3>
-            <p>{{ parking.description }}</p>
-            <div class="map-links">
-                <a href="{{ parking.maps.google }}" target="_blank" rel="noopener" class="btn btn--outline">📍 Parking — Google Maps</a>
-                <a href="{{ parking.maps.mapy_cz }}" target="_blank" rel="noopener" class="btn btn--outline">🗺️ Parking — Mapy.cz</a>
-            </div>
+                    <div class="card-subdivider"></div>
 
-            <h3>Doprava</h3>
-            <p>{{ transport.description }}</p>
+                    <h3 class="sub-heading">Parkování</h3>
+                    <p class="section-text">{{ parking.description }}</p>
+                    <div class="map-links">
+                        <a href="{{ parking.maps.google }}" target="_blank" rel="noopener" class="btn btn--pill btn--outline">Google Maps</a>
+                        <a href="{{ parking.maps.mapy_cz }}" target="_blank" rel="noopener" class="btn btn--pill btn--outline">Mapy.cz</a>
+                    </div>
+
+                    <div class="card-subdivider"></div>
+
+                    <h3 class="sub-heading">Doprava</h3>
+                    <p class="section-text">{{ transport.description }}</p>
+                </div>
+            </div>
         </section>
 
         {# ═══════════════════════════════════════════════ #}
         {# UBYTOVÁNÍ                                      #}
         {# ═══════════════════════════════════════════════ #}
         <section id="ubytovani" class="section">
-            <h2>Ubytování</h2>
-            <div class="info-card">
-                <p>⛺ {{ accommodation.description }}</p>
+            <div class="card-frame">
+                <h2 class="section-title">Ubytování</h2>
+                <p class="section-text">{{ accommodation.description }}</p>
             </div>
         </section>
 
         {# ═══════════════════════════════════════════════ #}
         {# DRESS CODE                                     #}
         {# ═══════════════════════════════════════════════ #}
-        <section id="dress-code" class="section">
-            <h2>Dress code</h2>
-            <p class="dress-code__style">{{ dress_code.style }}</p>
-            <p>{{ dress_code.description }}</p>
-            <p class="dress-code__warning">⚠️ {{ dress_code.terrain_warning }}</p>
+        <section id="dress-code" class="section-spacer gingham">
+            <div class="section-inner">
+                <div class="card-frame">
+                    <h2 class="section-title">Dress Code</h2>
+                    <p class="dress-code__style">{{ dress_code.style }}</p>
+                    <p class="section-text">{{ dress_code.description }}</p>
+                    <p class="dress-code__warning">{{ dress_code.terrain_warning }}</p>
+                </div>
+            </div>
         </section>
 
         {# ═══════════════════════════════════════════════ #}
         {# DARY, DĚTI, MAZLÍČCI                           #}
         {# ═══════════════════════════════════════════════ #}
         <section id="info" class="section">
-            <h2>Praktické informace</h2>
+            <div class="card-frame">
+                <h2 class="section-title">Praktické informace</h2>
 
-            <div class="info-card">
-                <h3>🎁 Dary</h3>
-                <p>{{ gifts.description }}</p>
-            </div>
+                <div class="info-item">
+                    <h3>Dary</h3>
+                    <p>{{ gifts.description }}</p>
+                </div>
 
-            <div class="info-card">
-                <h3>👶 Děti</h3>
-                <p>{{ children.note }}</p>
-            </div>
+                <div class="info-item">
+                    <h3>Děti</h3>
+                    <p>{{ children.note }}</p>
+                </div>
 
-            <div class="info-card">
-                <h3>🐾 Mazlíčci</h3>
-                <p>{{ pets.note }}</p>
+                <div class="info-item">
+                    <h3>Mazlíčci</h3>
+                    <p>{{ pets.note }}</p>
+                </div>
             </div>
         </section>
 
         {# ═══════════════════════════════════════════════ #}
         {# ABY VÁS NIC NEPŘEKVAPILO                      #}
         {# ═══════════════════════════════════════════════ #}
-        <section id="pozor" class="section">
-            <h2>{{ surprises.title }}</h2>
-            <div class="surprises-list">
-                {% for item in surprises.entries %}
-                <div class="info-card surprise-card">
-                    <h3>{{ item.icon }} {{ item.title }}</h3>
-                    <p>{{ item.description }}</p>
+        <section id="pozor" class="section-spacer gingham">
+            <div class="section-inner">
+                <div class="card-frame">
+                    <h2 class="section-title">{{ surprises.title }}</h2>
+                    <div class="surprises-list">
+                        {% for item in surprises.entries %}
+                        <div class="surprise-item">
+                            <h3>{{ item.title }}</h3>
+                            <p>{{ item.description }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
                 </div>
-                {% endfor %}
             </div>
         </section>
 
@@ -157,16 +190,18 @@
         {# KONTAKTY                                       #}
         {# ═══════════════════════════════════════════════ #}
         <section id="kontakt" class="section">
-            <h2>Kontakt na den D</h2>
-            <p>Prosíme, v den svatby volejte naše svědky — ne nás! 😄</p>
-            <div class="contacts">
-                {% for contact in contacts %}
-                <div class="contact-card">
-                    <h3>{{ contact.name }}</h3>
-                    <p class="contact-card__role">{{ contact.role }}</p>
-                    <a href="tel:{{ contact.phone | replace(' ', '') }}" class="btn btn--primary">📞 {{ contact.phone }}</a>
+            <div class="card-frame">
+                <h2 class="section-title">Kontakty</h2>
+                <p class="section-text contacts-intro">V den svatby prosíme volejte naše svědky.</p>
+                <div class="contacts">
+                    {% for contact in contacts %}
+                    <div class="contact-card">
+                        <h3>{{ contact.name }}</h3>
+                        <p class="contact-card__role">{{ contact.role }}</p>
+                        <a href="tel:{{ contact.phone | replace(' ', '') }}" class="btn btn--pill btn--outline">{{ contact.phone }}</a>
+                    </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
         </section>
 
@@ -176,7 +211,8 @@
     {# FOOTER                                         #}
     {# ═══════════════════════════════════════════════ #}
     <footer class="footer">
-        <p>{{ couple.name_a }} & {{ couple.name_b }} · {{ wedding.date | czech_date }}</p>
+        <p class="footer__names">{{ couple.name_a }} &amp; {{ couple.name_b }}</p>
+        <p class="footer__date">{{ wedding.date | czech_date }} · {{ venue.name }}</p>
     </footer>
 
     <script src="static/main.js"></script>
