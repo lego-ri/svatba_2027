@@ -76,6 +76,21 @@ a {
     padding: 0 0.15em;
 }
 
+.hero__illustration {
+    margin: 1.5rem auto 1.2rem;
+    max-width: 250px;
+    display: flex;
+    justify-content: center;
+}
+
+.hero__illustration img {
+    width: 100%;
+    max-width: 230px;
+    height: auto;
+    display: block;
+    mix-blend-mode: multiply;
+}
+
 .hero__divider {
     width: 60px;
     height: 2px;
