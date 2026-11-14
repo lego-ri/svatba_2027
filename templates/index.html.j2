@@ -6,7 +6,8 @@
     <title>{{ site.title }}</title>
     <meta name="description" content="{{ site.meta_description }}">
     {% if privacy.robots_noindex %}
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
     {% endif %}
 
     {# ── Barevná paleta jako CSS custom properties ── #}

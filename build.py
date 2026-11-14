@@ -114,6 +114,10 @@ def build():
         (DIST_DIR / "robots.txt").write_text(robots, encoding="utf-8")
         print("🤖 robots.txt (noindex) vygenerován.")
 
+    # .nojekyll pro GitHub Pages (zabraňuje ignorování složek/souborů)
+    (DIST_DIR / ".nojekyll").touch()
+    print("📦 .nojekyll pro GitHub Pages vytvořen.")
+
     return 0
 
 
