@@ -76,45 +76,8 @@ schedule:
     icon: "party"
 
 # ── Ubytování ────────────────────────────────────────────────
-# Typ ubytování: type (stan / auto / apartmán / pokoj / tp / místnost)
 accommodation:
-  description: "Ubytování je přímo na statku a v jeho okolí."
-  assignments:
-    - place: "Ve stanech"
-      type: "stan"
-      guests: ["Pepa", "Ondra", "Matěj"]
-
-    - place: "V autě"
-      type: "auto"
-      guests: ["Ričího rodiče"]
-
-    - place: "Apartmány naproti stodole — pokoj zvenku"
-      type: "apartmán"
-      guests: ["Petr"]
-
-    - place: "Pokoj 1"
-      type: "pokoj"
-      guests: ["Ivanka"]
-
-    - place: "Pokoj 2"
-      type: "pokoj"
-      guests: ["Děda"]
-
-    - place: "Kuchyňské apartmá"
-      type: "apartmán"
-      guests: ["Družičky"]
-
-    - place: "TP1"
-      type: "tp"
-      guests: ["Zelená parta"]
-
-    - place: "TP2"
-      type: "tp"
-      guests: ["Randomáci"]
-
-    - place: 'Nad stodolou — „chill místnost"'
-      type: "místnost"
-      guests: ["Party boys"]
+  description: "Spaní je ve stanech přímo na zahradě statku. Stany budou připravené na místě — stačí přijet a ubytovat se!"
 
 # ── Dress code ───────────────────────────────────────────────
 dress_code:
@@ -125,16 +88,18 @@ dress_code:
 # ── Barevná paleta ───────────────────────────────────────────
 # Snadno upravitelné HEX kódy — stačí změnit hodnotu.
 colors:
-  primary:    "#4A7C59"   # zelená (sage/tmavší)
-  secondary:  "#E8B931"   # žlutá (teplá zlatavá)
-  accent:     "#3B7CB8"   # modrá (středně sytá)
-  background: "#FDF8F0"   # krémově bílé pozadí
-  text:       "#2C2C2C"   # tmavě šedý text
-  text_light: "#FFFFFF"   # bílý text (na tmavých plochách)
+  primary:    "#2B4C8C"   # královská modrá (rámečky, nadpisy, tlačítka)
+  secondary:  "#E5A812"   # doplňková tmavší zlatavá žlutá
+  accent:     "#1B3B6F"   # hlubší modrá (hover stav tlačítek)
+  background: "#F0B824"   # plné, syté a tmavší žluté pozadí celého webu
+  card_bg:    "#FFFFFF"   # čisté bílé pozadí karet (vysoký kontrast a čitelnost)
+  text:       "#242424"   # tmavě šedý text pro odstavce
+  text_light: "#FFFFFF"   # bílý text (na modrých tlačítkách)
+  border:     "#2B4C8C"   # modrá pro rámečky a linky
 
 # ── Dary ─────────────────────────────────────────────────────
 gifts:
-  description: "Největším darem je pro nás vaše přítomnost! Pokud nás ale chcete obdarovat, budeme rádi za finanční příspěvek na naše líbánky. 🌴"
+  description: "Největším darem je pro nás vaše přítomnost! Pokud nás ale chcete obdarovat, budeme rádi za finanční příspěvek na naše líbánky."
   type: "monetary"     # monetary | registry | none
   # registry_url: ""   # pokud byste přidali registr dárků
 
@@ -146,6 +111,18 @@ children:
 pets:
   allowed_with_consultation: true
   note: "Mazlíčky prosím pouze po předchozí domluvě s námi."
+
+# ── Aby vás nic nepřekvapilo ──────────────────────────────────
+# Praktické upozornění pro hosty — přidávejte položky do seznamu.
+surprises:
+  title: "Aby vás nic nepřekvapilo"
+  entries:
+    - title: "Obřad je venku"
+      description: "Obřad se koná pod širým nebem — v případě deště budeme mít připravené deštníky, nemusíte si nosit vlastní."
+
+    # Sem můžeš přidávat další položky, např.:
+    # - title: "Večerní oheň"
+    #   description: "Na večer bude připravené ohniště — vezměte si teplejší vrstvu."
 
 # ── Kontakty na den D ────────────────────────────────────────
 # (Svědkové / koordinátoři — aby hosté nevolali novomanželům)
