@@ -1,0 +1,172 @@
+# ============================================================
+#  Kačí & Ričí — Svatba 2027 — Hlavní datový soubor
+#  Všechny texty a údaje webu se upravují ZDE, nikoli v HTML.
+# ============================================================
+
+# ── Základní údaje ───────────────────────────────────────────
+couple:
+  name_a: "Kačí"
+  name_b: "Ričí"
+  # Plná jména (pro právní/formální sekce, pokud bude potřeba)
+  full_name_a: "Kačí"
+  full_name_b: "Ričí"
+
+wedding:
+  date: "2027-06-12"          # ISO formát YYYY-MM-DD
+  time: "13:00"               # Začátek obřadu
+  datetime: "2027-06-12T13:00:00+02:00"   # Pro .ics kalendář (CEST)
+  locale: "cs"                # Jazyk webu
+
+# ── Místo konání ─────────────────────────────────────────────
+venue:
+  name: "Statek P22"
+  description: "Vše se koná na jednom místě — obřad, hostina i párty."
+  maps:
+    google: "https://maps.app.goo.gl/c11qXTEbDV7oo6Tc9"
+    mapy_cz: "https://mapy.com/s/fobutovojo"
+
+# ── Parkování ────────────────────────────────────────────────
+parking:
+  description: "Parkování zdarma, cca 3 minuty chůze od statku."
+  maps:
+    google: "https://maps.app.goo.gl/zrwLixNxC8QAeks89"
+    mapy_cz: "https://mapy.com/s/fukecepupu"
+
+# ── Doprava ──────────────────────────────────────────────────
+transport:
+  description: "Organizovaná doprava není zajištěna — prosíme, přijeďte autem a zaparkujte na místě uvedeném výše."
+
+# ── Harmonogram dne ──────────────────────────────────────────
+# Každá položka: time (HH:MM), title, description (nepovinné), icon (nepovinné)
+# Ikony: ceremony, drinks, camera, dinner, cake, dance, party, sparkler
+schedule:
+  - time: "12:30"
+    title: "Příjezd hostů"
+    description: "Uvítání a welcome drink."
+    icon: "drinks"
+
+  - time: "13:00"
+    title: "Svatební obřad"
+    description: ""
+    icon: "ceremony"
+
+  - time: "14:00"
+    title: "Skupinové focení"
+    description: "Prosíme o trpělivost, netrvá to dlouho!"
+    icon: "camera"
+
+  - time: "14:30"
+    title: "Svatební hostina"
+    description: ""
+    icon: "dinner"
+
+  - time: "17:00"
+    title: "Krájení dortu"
+    description: ""
+    icon: "cake"
+
+  - time: "20:00"
+    title: "První tanec"
+    description: ""
+    icon: "dance"
+
+  - time: "20:30"
+    title: "Volná zábava & párty"
+    description: "Tancujte do rána!"
+    icon: "party"
+
+# ── Ubytování ────────────────────────────────────────────────
+# Typ ubytování: type (stan / auto / apartmán / pokoj / tp / místnost)
+accommodation:
+  description: "Ubytování je přímo na statku a v jeho okolí."
+  assignments:
+    - place: "Ve stanech"
+      type: "stan"
+      guests: ["Pepa", "Ondra", "Matěj"]
+
+    - place: "V autě"
+      type: "auto"
+      guests: ["Ričího rodiče"]
+
+    - place: "Apartmány naproti stodole — pokoj zvenku"
+      type: "apartmán"
+      guests: ["Petr"]
+
+    - place: "Pokoj 1"
+      type: "pokoj"
+      guests: ["Ivanka"]
+
+    - place: "Pokoj 2"
+      type: "pokoj"
+      guests: ["Děda"]
+
+    - place: "Kuchyňské apartmá"
+      type: "apartmán"
+      guests: ["Družičky"]
+
+    - place: "TP1"
+      type: "tp"
+      guests: ["Zelená parta"]
+
+    - place: "TP2"
+      type: "tp"
+      guests: ["Randomáci"]
+
+    - place: 'Nad stodolou — „chill místnost"'
+      type: "místnost"
+      guests: ["Party boys"]
+
+# ── Dress code ───────────────────────────────────────────────
+dress_code:
+  style: "Formální"
+  description: "Obřad i hostina jsou formální. Dámy — pozor na podpatky, obřad se koná na trávníku!"
+  terrain_warning: "Terén je zatravněný — doporučujeme široké podpatky nebo klínky."
+
+# ── Barevná paleta ───────────────────────────────────────────
+# Snadno upravitelné HEX kódy — stačí změnit hodnotu.
+colors:
+  primary:    "#4A7C59"   # zelená (sage/tmavší)
+  secondary:  "#E8B931"   # žlutá (teplá zlatavá)
+  accent:     "#3B7CB8"   # modrá (středně sytá)
+  background: "#FDF8F0"   # krémově bílé pozadí
+  text:       "#2C2C2C"   # tmavě šedý text
+  text_light: "#FFFFFF"   # bílý text (na tmavých plochách)
+
+# ── Dary ─────────────────────────────────────────────────────
+gifts:
+  description: "Největším darem je pro nás vaše přítomnost! Pokud nás ale chcete obdarovat, budeme rádi za finanční příspěvek na naše líbánky. 🌴"
+  type: "monetary"     # monetary | registry | none
+  # registry_url: ""   # pokud byste přidali registr dárků
+
+# ── Děti & mazlíčci ─────────────────────────────────────────
+children:
+  allowed: true
+  note: "Děti jsou vítány!"
+
+pets:
+  allowed_with_consultation: true
+  note: "Mazlíčky prosím pouze po předchozí domluvě s námi."
+
+# ── Kontakty na den D ────────────────────────────────────────
+# (Svědkové / koordinátoři — aby hosté nevolali novomanželům)
+contacts:
+  - name: "Seba"
+    phone: "+420 776 424 916"
+    role: "Svědek"
+
+  - name: "Héďa"
+    phone: "+420 722 200 432"
+    role: "Svědkyně"
+
+# ── Soukromí & přístup ───────────────────────────────────────
+privacy:
+  method: "unlisted"   # unlisted | password | encrypted
+  robots_noindex: true
+  # password: ""       # jen pokud method == "password"
+
+# ── Doména & hosting ─────────────────────────────────────────
+site:
+  domain: "kacirici2027.cz"          # Zatím placeholder — viz diskuze o doméně
+  base_url: "/"                      # Kořenová cesta (změnit na "/repo-name/" pro GH Pages bez vlastní domény)
+  title: "Kačí & Ričí — Svatba 2027"
+  meta_description: "Svatební web Kačí a Ričího — 12. června 2027, Statek P22."
