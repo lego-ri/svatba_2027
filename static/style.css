@@ -1,7 +1,7 @@
 /* ═══════════════════════════════════════════════════════════
    Kačí & Ričí — Svatba 2027
-   Minimalistický středomořský svatební styl:
-   Čisté bílé pozadí bez rámečků · Královská modrá & zlatavá žlutá typografie
+   Vizuál: Přírodní botanický line-art styl podle předlohy
+   Olivový podklad · Přírodní papír (slonová kost) · Autentický rukopis Caveat & jemný Montserrat
    ═══════════════════════════════════════════════════════════ */
 
 /* ── Reset & Base ──────────────────────────────────────── */
@@ -14,528 +14,575 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    background-color: var(--color-backdrop, #56653E);
 }
 
-/* ── Pozadí: Čistě bílé, vzdušné ──────────────────────── */
 body {
-    font-family: 'Lora', 'Georgia', serif;
-    color: var(--color-text);
-    background-color: var(--color-bg, #FFFFFF);
-    line-height: 1.8;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--color-text, #36402C);
+    background-color: var(--color-backdrop, #56653E);
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
 }
 
 a {
-    color: var(--color-primary);
+    color: inherit;
     text-decoration: none;
     transition: all 0.2s ease;
 }
 
-/* ── Hero sekce ───────────────────────────────────────── */
-.hero-section {
-    background-color: var(--color-bg, #FFFFFF);
-    min-height: 90vh;
-    min-height: 90dvh;
+/* ── Vnější kontejner (imitace papírového pruhu na plátně) ── */
+.page-container {
+    min-height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
-    text-align: center;
-    padding: 4.5rem 1.5rem 3.5rem;
+    background-color: var(--color-backdrop, #56653E);
+    padding: 0;
 }
 
-.hero-content {
-    max-width: 520px;
+.invite-canvas {
+    max-width: 480px;
     width: 100%;
+    background-color: var(--color-bg, #FAF8F3);
+    min-height: 100vh;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+    position: relative;
+    overflow: hidden;
 }
 
-.hero__label {
-    font-family: 'Playfair Display', serif;
-    font-size: 0.88rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.32em;
-    color: var(--color-primary);
-    margin-bottom: 1rem;
-    opacity: 0.9;
+/* ── Sekce ────────────────────────────────────────────── */
+.section {
+    padding: 3.2rem 1.8rem;
+    text-align: center;
+}
+
+/* ── Hlavička (Hero) ──────────────────────────────────── */
+.hero-section {
+    padding: 4rem 1.8rem 2.5rem;
+}
+
+.hero__tag {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--color-text-muted, #6E7A60);
+    letter-spacing: 0.12em;
+    margin-bottom: 0.8rem;
 }
 
 .hero__names {
-    font-family: 'Dancing Script', cursive;
-    font-size: clamp(3.4rem, 12vw, 4.8rem);
+    font-family: 'Caveat', cursive;
+    font-size: clamp(3.4rem, 12vw, 4.4rem);
     font-weight: 700;
-    color: var(--color-primary);
-    line-height: 1.15;
-    margin-bottom: 0.9rem;
+    color: var(--color-primary, #36402C);
+    line-height: 1.1;
+    margin-bottom: 1.4rem;
 }
 
 .hero__names .amp {
-    color: var(--color-secondary);
-    font-family: 'Playfair Display', serif;
     font-weight: 400;
+    color: var(--color-secondary, #5F6F48);
     font-size: 0.85em;
     padding: 0 0.15em;
 }
 
 .hero__illustration {
-    margin: 1.5rem auto 1.2rem;
-    max-width: 250px;
+    margin: 1.2rem auto 1.8rem;
+    max-width: 240px;
     display: flex;
     justify-content: center;
 }
 
 .hero__illustration img {
     width: 100%;
-    max-width: 230px;
+    max-width: 220px;
     height: auto;
     display: block;
     mix-blend-mode: multiply;
 }
 
-.hero__divider {
-    width: 60px;
-    height: 2px;
-    background: var(--color-yellow-bright);
-    margin: 0.8rem auto 1.6rem;
-    border-radius: 2px;
-}
-
-.hero__date {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.7rem;
-    font-weight: 700;
-    color: var(--color-secondary);
-    letter-spacing: 0.06em;
-    margin-bottom: 0.25rem;
-}
-
-.hero__time {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--color-primary);
-    letter-spacing: 0.08em;
-    margin-bottom: 0.5rem;
-    opacity: 0.9;
-}
-
-.hero__venue {
-    font-family: 'Lora', serif;
-    font-size: 1.1rem;
-    color: var(--color-primary);
-    opacity: 0.75;
-    margin-bottom: 2.2rem;
-}
-
-.hero__action {
-    margin-top: 1.8rem;
-}
-
-/* ── Rozvržení sekcí (volně plynoucí bez rámečků) ──────── */
-.section {
-    max-width: 560px;
+.hero__intro {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--color-text-muted, #6E7A60);
+    max-width: 360px;
     margin: 0 auto;
-    padding: 4rem 1.5rem;
-    text-align: center;
+    font-weight: 300;
 }
 
-/* Decentní oddělovač mezi sekcemi */
-.section-divider {
-    width: 44px;
-    height: 2px;
-    background: var(--color-yellow-bright);
-    margin: 0 auto;
-    opacity: 0.65;
-    border-radius: 2px;
-}
-
-.sub-divider {
-    width: 32px;
-    height: 1px;
-    background: rgba(43, 76, 140, 0.18);
-    margin: 2rem auto;
-}
-
-/* ── Nadpisy sekcí ────────────────────────────────────── */
-.section-title {
-    font-family: 'Playfair Display', 'Georgia', serif;
-    font-size: 1.55rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    color: var(--color-primary);
-    margin-bottom: 2rem;
-    position: relative;
-}
-
-.section-title::after {
-    content: '';
-    display: block;
-    width: 40px;
-    height: 2px;
-    background: var(--color-yellow-bright);
-    margin: 0.75rem auto 0;
-    border-radius: 2px;
-}
-
-.sub-heading {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.15rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--color-primary);
-    margin: 2rem 0 0.8rem;
-}
-
-.section-text {
-    font-size: 1.02rem;
-    line-height: 1.85;
-    color: var(--color-primary);
-    opacity: 0.9;
-    margin-bottom: 1.4rem;
-}
-
-.venue-highlight {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.35rem;
-    font-weight: 700;
-    color: var(--color-secondary);
-    margin-bottom: 0.4rem;
-}
-
-.lead-text {
-    font-size: 1.1rem;
-    max-width: 480px;
-    margin: 0 auto;
-}
-
-/* ── Oválná tlačítka (Pill buttons) ──────────────────── */
-.btn {
-    display: inline-block;
-    font-family: 'Playfair Display', serif;
-    font-size: 0.84rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    text-decoration: none;
-    transition: all 0.25s ease;
-    cursor: pointer;
-    border: 1.5px solid var(--color-primary);
-}
-
-.btn--pill {
-    padding: 0.7rem 2rem;
-    border-radius: 9999px;
-}
-
-.btn--primary {
-    background-color: var(--color-primary);
-    color: var(--color-text-light);
-    border-color: var(--color-primary);
-}
-.btn--primary:hover {
-    background-color: var(--color-yellow-bright);
-    border-color: var(--color-yellow-bright);
-    color: var(--color-primary);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(240, 184, 36, 0.4);
-}
-
-.btn--outline {
-    background-color: transparent;
-    color: var(--color-primary);
-    border-color: var(--color-primary);
-}
-.btn--outline:hover {
-    background-color: var(--color-primary);
-    color: var(--color-text-light);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(43, 76, 140, 0.22);
-}
-
-/* ── Sticky Navigace ──────────────────────────────────── */
+/* ── Sticky Navigace (jemná, splývající) ──────────────── */
 .nav {
     position: sticky;
     top: 0;
     z-index: 100;
-    background-color: rgba(255, 255, 255, 0.96);
+    background-color: rgba(250, 248, 243, 0.96);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    border-top: 1.5px solid var(--color-yellow-bright);
-    border-bottom: 1.5px solid rgba(43, 76, 140, 0.15);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    border-top: 1px solid var(--color-border, #E2E8D8);
+    border-bottom: 1px solid var(--color-border, #E2E8D8);
+    box-shadow: 0 2px 10px rgba(54, 64, 44, 0.04);
 }
 .nav ul {
     display: flex;
     justify-content: center;
-    gap: 0.3rem;
+    gap: 0.2rem;
     list-style: none;
-    padding: 0.7rem 0.5rem;
-    max-width: 720px;
+    padding: 0.6rem 0.4rem;
+    max-width: 480px;
     margin: 0 auto;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
 }
 .nav a {
     white-space: nowrap;
-    padding: 0.35rem 0.75rem;
+    padding: 0.3rem 0.65rem;
     border-radius: 9999px;
-    font-family: 'Playfair Display', serif;
-    font-size: 0.74rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--color-primary);
-    border: 1px solid transparent;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--color-primary, #36402C);
+    transition: background 0.2s, color 0.2s;
 }
 .nav a:hover, .nav a.active {
-    border-color: var(--color-primary);
-    background-color: var(--color-primary);
-    color: var(--color-text-light);
-    text-decoration: none;
+    background-color: var(--color-sage-light, #D5DDC9);
+    color: var(--color-primary, #36402C);
 }
 
-/* ── Harmonogram dne: Žluté časy + modré názvy ────────── */
+/* ── Rukopisné nadpisy sekcí (podle předlohy) ─────────── */
+.script-title {
+    font-family: 'Caveat', cursive;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--color-primary, #36402C);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.script-subtitle {
+    font-family: 'Caveat', cursive;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--color-secondary, #5F6F48);
+    margin-bottom: 0.4rem;
+    line-height: 1.2;
+}
+
+/* ── Line-art ikony v sekcích ─────────────────────────── */
+.section-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.6rem auto 1.2rem;
+    color: var(--color-primary, #36402C);
+    opacity: 0.9;
+}
+
+/* ── Kreslené dělicí vlnovky ───────────────────────────── */
+.doodle-divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-secondary, #5F6F48);
+    opacity: 0.55;
+    margin: 0.5rem auto;
+}
+
+/* ── Texty ────────────────────────────────────────────── */
+.section-text {
+    font-size: 0.94rem;
+    line-height: 1.8;
+    color: var(--color-text, #36402C);
+    max-width: 380px;
+    margin: 0 auto 1.4rem;
+    font-weight: 300;
+}
+
+.section-text-sm {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: var(--color-text-muted, #6E7A60);
+    max-width: 360px;
+    margin: 0 auto 1rem;
+    font-weight: 300;
+}
+
+.lead-text {
+    font-size: 1rem;
+    color: var(--color-primary, #36402C);
+}
+
+.venue-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--color-primary, #36402C);
+    margin-bottom: 0.4rem;
+}
+
+.sub-block {
+    margin-top: 2rem;
+    padding-top: 1.6rem;
+    border-top: 1px dashed rgba(95, 111, 72, 0.2);
+}
+
+.sub-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-secondary, #5F6F48);
+    margin-bottom: 0.5rem;
+}
+
+/* ── Tlačítka (jemný šalvějový oválek jako v předloze) ── */
+.btn {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.btn--pill {
+    padding: 0.65rem 1.6rem;
+    border-radius: 9999px;
+    background-color: var(--color-sage-light, #D5DDC9);
+    color: var(--color-primary, #36402C);
+}
+.btn--pill:hover {
+    background-color: var(--color-sage-hover, #BAC5AC);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(54, 64, 44, 0.12);
+}
+
+.btn--sm {
+    font-size: 0.74rem;
+    padding: 0.5rem 1.2rem;
+    background-color: rgba(213, 221, 201, 0.6);
+}
+.btn--sm:hover {
+    background-color: var(--color-sage-light, #D5DDC9);
+}
+
+.pill-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    align-items: center;
+    margin: 1.2rem 0;
+}
+
+.pill-buttons--sm {
+    gap: 0.45rem;
+}
+
+/* ── Harmonogram dne ──────────────────────────────────── */
 .timeline {
+    max-width: 320px;
+    margin: 1.5rem auto 0;
     text-align: center;
-    margin-top: 1rem;
 }
 
 .timeline__item {
-    padding: 1.6rem 0;
-    border-bottom: 1px solid rgba(43, 76, 140, 0.1);
+    padding: 1.2rem 0;
+    border-bottom: 1px dashed rgba(95, 111, 72, 0.2);
 }
 .timeline__item:first-child {
-    padding-top: 0.2rem;
+    padding-top: 0;
 }
 .timeline__item:last-child {
     border-bottom: none;
-    padding-bottom: 0.2rem;
+    padding-bottom: 0;
 }
 
 .timeline__time {
     display: block;
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 1.65rem;
-    letter-spacing: 0.05em;
-    color: var(--color-secondary);
-    margin-bottom: 0.3rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    letter-spacing: 0.06em;
+    color: var(--color-primary, #36402C);
+    margin-bottom: 0.2rem;
 }
 
 .timeline__body h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--color-primary);
-    margin-bottom: 0.25rem;
+    color: var(--color-secondary, #5F6F48);
+    margin-bottom: 0.2rem;
 }
 
 .timeline__body p {
-    font-size: 0.94rem;
-    color: var(--color-primary);
-    opacity: 0.75;
-    max-width: 400px;
-    margin: 0 auto;
+    font-size: 0.86rem;
+    color: var(--color-text-muted, #6E7A60);
+    line-height: 1.5;
+    font-weight: 300;
 }
 
-/* ── Odkazy na mapy ───────────────────────────────────── */
-.map-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.85rem;
-    justify-content: center;
-    margin: 1.2rem 0 1.6rem;
-}
-
-/* ── Dress code sekce ─────────────────────────────────── */
-.dress-code__style {
-    font-family: 'Dancing Script', cursive;
-    font-size: 2.8rem;
-    font-weight: 700;
-    color: var(--color-secondary);
-    margin-bottom: 0.8rem;
-}
-
-.dress-code__warning {
-    font-size: 0.95rem;
-    margin: 1.8rem auto 0;
-    padding: 0.9rem 1.4rem;
-    max-width: 440px;
-    border-left: 2px solid var(--color-yellow-bright);
-    color: var(--color-primary);
-    opacity: 0.9;
+/* ── Dress code poznámka a paletka ─────────────────────── */
+.warning-note {
+    font-size: 0.88rem;
     font-style: italic;
+    color: var(--color-text-muted, #6E7A60);
+    max-width: 360px;
+    margin: 1.2rem auto 1.8rem;
+    line-height: 1.6;
 }
 
-/* ── Praktické informace ──────────────────────────────── */
-.info-item {
-    padding: 1.8rem 0;
-    border-bottom: 1px solid rgba(43, 76, 140, 0.1);
-}
-.info-item:first-child {
-    padding-top: 0.4rem;
-}
-.info-item:last-child {
-    border-bottom: none;
-    padding-bottom: 0.4rem;
+.color-palette {
+    margin-top: 1.8rem;
+    padding-top: 1.4rem;
+    border-top: 1px dashed rgba(95, 111, 72, 0.2);
 }
 
-.info-item h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.12rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--color-primary);
-    margin-bottom: 0.4rem;
+.color-palette__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--color-text-muted, #6E7A60);
+    margin-bottom: 1rem;
 }
 
-.info-item p {
-    font-size: 0.98rem;
-    line-height: 1.75;
-    color: var(--color-primary);
-    opacity: 0.85;
-    max-width: 440px;
-    margin: 0 auto;
+.color-palette__dots {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.color-palette__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.color-palette__dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+    border: 2px solid #FAF8F3;
+}
+
+.color-palette__name {
+    font-size: 0.68rem;
+    color: var(--color-text-muted, #6E7A60);
+    font-weight: 400;
 }
 
 /* ── Aby vás nic nepřekvapilo ─────────────────────────── */
-.surprise-item {
-    padding: 1.8rem 0;
-    border-bottom: 1px solid rgba(43, 76, 140, 0.1);
-}
-.surprise-item:first-child {
-    padding-top: 0.4rem;
-}
-.surprise-item:last-child {
-    border-bottom: none;
-    padding-bottom: 0.4rem;
+.surprises-list {
+    max-width: 380px;
+    margin: 1.2rem auto 0;
 }
 
-.surprise-item h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.12rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--color-primary);
+.surprise-entry {
+    padding: 0.8rem 0;
+}
+
+.surprise-entry__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-secondary, #5F6F48);
     margin-bottom: 0.4rem;
-}
-
-.surprise-item p {
-    font-size: 0.98rem;
-    line-height: 1.75;
-    color: var(--color-primary);
-    opacity: 0.85;
-    max-width: 440px;
-    margin: 0 auto;
 }
 
 /* ── Kontakty ─────────────────────────────────────────── */
 .contacts-intro {
-    margin-bottom: 2.2rem;
-    font-style: italic;
-    color: var(--color-primary);
-    opacity: 0.8;
+    margin-bottom: 1.6rem;
 }
 
-.contacts {
+.contacts-grid {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.6rem;
     align-items: center;
 }
 
 .contact-card {
+    text-align: center;
     width: 100%;
     max-width: 280px;
-    padding-bottom: 1.6rem;
-    border-bottom: 1px solid rgba(43, 76, 140, 0.1);
+    padding-bottom: 1.4rem;
+    border-bottom: 1px dashed rgba(95, 111, 72, 0.2);
 }
 .contact-card:last-child {
     border-bottom: none;
     padding-bottom: 0;
 }
 
-.contact-card h3 {
-    font-family: 'Dancing Script', cursive;
+.contact-name {
+    font-family: 'Caveat', cursive;
     font-size: 2.2rem;
-    color: var(--color-secondary);
+    color: var(--color-primary, #36402C);
     margin-bottom: 0.1rem;
 }
 
-.contact-card__role {
-    font-family: 'Playfair Display', serif;
-    font-size: 0.76rem;
+.contact-role {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--color-primary);
-    opacity: 0.8;
-    margin-bottom: 0.85rem;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted, #6E7A60);
+    margin-bottom: 0.75rem;
+}
+
+.btn--contact {
+    font-size: 0.78rem;
+    padding: 0.55rem 1.4rem;
+}
+
+/* ── Odpočet času ("Uvidíme se za...") ─────────────────── */
+.countdown-section {
+    padding: 2.5rem 1.8rem 3.5rem;
+}
+
+.countdown-frame {
+    border: 1.5px dashed var(--color-secondary, #5F6F48);
+    border-radius: 12px;
+    padding: 2.2rem 1.4rem;
+    background-color: rgba(213, 221, 201, 0.18);
+    position: relative;
+    max-width: 380px;
+    margin: 0 auto;
+}
+
+.countdown-title {
+    font-family: 'Caveat', cursive;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--color-primary, #36402C);
+    margin-bottom: 1.4rem;
+}
+
+.countdown-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 52px;
+}
+
+.countdown-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--color-primary, #36402C);
+    line-height: 1.1;
+}
+
+.countdown-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.82rem;
+    color: var(--color-text-muted, #6E7A60);
+    margin-top: 0.3rem;
+}
+
+.countdown-sep {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    color: var(--color-secondary, #5F6F48);
+    opacity: 0.5;
+    margin-bottom: 1rem;
+}
+
+/* ── Závěr (Closing) ──────────────────────────────────── */
+.closing-section {
+    padding-top: 2rem;
+}
+
+.closing-heart {
+    display: flex;
+    justify-content: center;
+    color: var(--color-primary, #36402C);
+    opacity: 0.85;
+    margin-bottom: 1rem;
+}
+
+.closing-title {
+    font-family: 'Caveat', cursive;
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: var(--color-primary, #36402C);
+    margin-bottom: 0.4rem;
+}
+
+.closing-date {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted, #6E7A60);
+    margin-bottom: 1.8rem;
+}
+
+.closing-action {
+    margin-top: 1rem;
+}
+
+.btn--primary {
+    background-color: var(--color-secondary, #5F6F48);
+    color: #FAF8F3;
+    padding: 0.8rem 2.2rem;
+}
+.btn--primary:hover {
+    background-color: var(--color-primary, #36402C);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(54, 64, 44, 0.25);
 }
 
 /* ── Zápatí ───────────────────────────────────────────── */
 .footer {
     text-align: center;
-    padding: 3.5rem 1.5rem;
-    background-color: var(--color-bg, #FFFFFF);
-    border-top: 1.5px solid var(--color-yellow-bright);
-}
-
-.footer__names {
-    font-family: 'Dancing Script', cursive;
-    font-size: 2rem;
-    color: var(--color-primary);
-    margin-bottom: 0.3rem;
-}
-
-.footer__names .amp {
-    color: var(--color-secondary);
-    font-family: 'Playfair Display', serif;
-    font-weight: 400;
-    font-size: 0.85em;
-    padding: 0 0.15em;
-}
-
-.footer__date {
-    font-family: 'Playfair Display', serif;
-    font-size: 0.84rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--color-primary);
-    opacity: 0.7;
+    padding: 2.5rem 1.5rem;
+    border-top: 1px solid var(--color-border, #E2E8D8);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--color-text-muted, #6E7A60);
 }
 
 /* ── Mobilní responzivita ─────────────────────────────── */
-@media (max-width: 600px) {
+@media (max-width: 520px) {
+    .invite-canvas {
+        box-shadow: none;
+    }
     .section {
-        padding: 3rem 1.2rem;
+        padding: 2.6rem 1.4rem;
     }
     .hero-section {
-        padding: 3.5rem 1.2rem 2.5rem;
+        padding: 3.2rem 1.4rem 2rem;
     }
     .hero__names {
-        font-size: 3.1rem;
+        font-size: 3.2rem;
     }
-    .nav ul {
-        justify-content: flex-start;
-        gap: 0.2rem;
-        padding: 0.55rem 0.4rem;
+    .script-title {
+        font-size: 2.4rem;
     }
-    .nav a {
-        font-size: 0.68rem;
-        padding: 0.3rem 0.55rem;
+    .countdown-frame {
+        padding: 1.8rem 1rem;
     }
-    .map-links {
-        flex-direction: column;
-        align-items: center;
+    .countdown-num {
+        font-size: 1.4rem;
     }
-    .map-links .btn {
-        width: 100%;
-        max-width: 240px;
-        text-align: center;
+    .countdown-item {
+        min-width: 44px;
     }
 }
