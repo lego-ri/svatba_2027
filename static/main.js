@@ -1,11 +1,11 @@
 /* ═══════════════════════════════════════════════════════════
-   Kačí & Ričí — Svatba 2027 — JavaScript
+   Kačí & Ričí — Svatba 12. 6. 2027 — JavaScript
    ═══════════════════════════════════════════════════════════ */
 
-// ── Sticky nav: zvýraznění aktivní sekce při rolování ────
+// ── 1. Sticky Nav: aktivní stav při scrollování ────────────
 (function () {
     const nav = document.getElementById('nav');
-    const links = nav ? nav.querySelectorAll('a[href^="#"]') : [];
+    const links = nav ? nav.querySelectorAll('.nav-links a[href^="#"]') : [];
     const sections = [];
 
     links.forEach(link => {
@@ -15,13 +15,16 @@
     });
 
     function onScroll() {
-        const scrollY = window.scrollY + 100;
+        const navHeight = nav ? nav.offsetHeight : 50;
+        const scrollY = window.scrollY + navHeight + 80;
         let current = null;
+
         sections.forEach(({ link, section }) => {
             if (section.offsetTop <= scrollY) {
                 current = link;
             }
         });
+
         links.forEach(l => l.classList.remove('active'));
         if (current) current.classList.add('active');
     }
@@ -30,18 +33,27 @@
     onScroll();
 })();
 
-// ── Plynulé rolování pro navigační odkazy ────────────────
+// ── 2. Plynulé scrollování s ohledem na fixní menu ────────
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        const target = document.querySelector(this.getAttribute('href'));
+        const href = this.getAttribute('href');
+        if (href === '#' || href === '') return;
+        const target = document.querySelector(href);
         if (target) {
             e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const nav = document.getElementById('nav');
+            const navHeight = nav ? nav.offsetHeight : 50;
+            const targetPos = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 16;
+
+            window.scrollTo({
+                top: targetPos,
+                behavior: 'smooth'
+            });
         }
     });
 });
 
-// ── Živý odpočet času ("Uvidíme se za...") ─────────────
+// ── 3. Živý odpočet času ("Uvidíme se za...") ─────────────
 (function () {
     const el = document.getElementById('countdown');
     if (!el) return;

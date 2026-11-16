@@ -1,13 +1,11 @@
 # ============================================================
 #  Kačí & Ričí — Svatba 2027 — Hlavní datový soubor
-#  Všechny texty a údaje webu se upravují ZDE, nikoli v HTML.
 # ============================================================
 
 # ── Základní údaje ───────────────────────────────────────────
 couple:
   name_a: "Kačí"
   name_b: "Ričí"
-  # Plná jména (pro právní/formální sekce, pokud bude potřeba)
   full_name_a: "Kačí"
   full_name_b: "Ričí"
 
@@ -37,84 +35,73 @@ transport:
   description: "Organizovaná doprava není zajištěna — prosíme, přijeďte autem a zaparkujte na místě uvedeném výše."
 
 # ── Harmonogram dne ──────────────────────────────────────────
-# Každá položka: time (HH:MM), title, description (nepovinné), icon (nepovinné)
-# Ikony: ceremony, drinks, camera, dinner, cake, dance, party, sparkler
 schedule:
-  - time: "12:00-12:30"
+  - time: "12:00–12:30"
     title: "Příjezd hostů"
-    description: "Uvítání a welcome drink."
-    icon: "drinks"
+    description: "Uvítání a welcome drink na dvoře statku."
+    color: "yellow"
 
   - time: "13:00"
     title: "Svatební obřad"
-    description: ""
-    icon: "ceremony"
+    description: "Řekneme si své ANO pod širým nebem na trávníku."
+    color: "navy"
 
   - time: "14:30"
-    title: "Odpolední raut"
-    description: ""
-    icon: "camera"
+    title: "Odpolední raut & oslava"
+    description: "Skvělé jídlo, přípitky, krájení dortu a společná zábava."
+    color: "blue"
 
 # ── Ubytování ────────────────────────────────────────────────
 accommodation:
   description: "Spaní je ve stanech přímo na zahradě statku, pokud vám nebylo specificky řečeno jinak. Domluvte se mezi sebou a přivezte si své stany."
+  pension_note: "Pokud by někdo potřeboval zařídit ubytování v penzionu, ozvěte se nám — mějte však prosím na paměti, že penzion není v docházkové vzdálenosti."
 
 # ── Dress code ───────────────────────────────────────────────
 dress_code:
-  style: "Formální"
-  description: "Obřad i hostina jsou formální. Budeme moc rádi, pokud svůj oděv sladíte do DOPLNIT"
-  terrain_warning: "Obřad se koná na trávníku — dámy, doporučujeme široké podpatky, klínky nebo pohodlnou společenskou obuv."
+  description: "Dress code není nijak předepsaný — vezměte si to, v čem se budete cítit dobře a pohodlně. Pokud byste se však chtěli sladit s výzdobou svatby, ponese se v tónech modré a žluté."
+  terrain_warning: "Obřad se koná na trávníku — dámy, doporučujeme pohodlnou obuv bez jehlových podpatků (např. klínky nebo široké podpatky)."
   palette:
-    - name: "Zlatavá"
-      hex: "#D49514"
-    - name: "Máslová"
-      hex: "#FCE8A2"
-    - name: "Terakota"
-      hex: "#C68369"
-    - name: "Písková"
-      hex: "#EADFCA"
-    - name: "Karamel"
-      hex: "#7A5C38"
+    - name: "Citronová žlutá"
+      hex: "#F5C928"
+    - name: "Zlatavá žlutá"
+      hex: "#D49A00"
+    - name: "Královská modrá"
+      hex: "#3B72C5"
+    - name: "Hluboká námořnická"
+      hex: "#102B50"
 
 # ── Barevná paleta webu ──────────────────────────────────────
-# Teplý zlatavý / žlutý botanický styl
 colors:
-  primary:        "#4A3810"   # tmavý jantar / medový inkoust (čitelné texty a nadpisy)
-  secondary:      "#D49514"   # sytá zlatavá sluneční žlutá (akcenty, časy, aktivní prvky)
-  yellow_soft:    "#FCE8A2"   # jemná máslově žlutá (podklad tlačítek a odznáčků)
-  yellow_hover:   "#D49514"   # barva při najetí a výběru (se 100% bílým textem)
-  background:     "#FAF7F0"   # teplý přírodní papír (slonová kost / vanilka)
-  page_backdrop:  "#C89838"   # teplé zlatavě okrové pozadí okolo pozvánky na PC
-  text:           "#4A3810"   # hlavní text
-  text_muted:     "#7E6534"   # tlumený teplý text pro doplňující popisky
-  border:         "#EADFCA"   # jemné linky a oddělovače
-  border_dark:    "#C48A10"   # tmavší linka pro rámeček odpočtu
+  navy:           "#102B50"   # hluboká námořnická modř (hlavní text, kontrast)
+  blue_royal:     "#3B72C5"   # světlejší / královská modrá
+  lemon:          "#F5C928"   # zářivá citronově žlutá
+  lemon_dark:     "#D49A00"   # tmavší zlatavá žlutá
+  ivory:          "#FFF8EC"   # teplá slonová kost (hlavní podklad)
+  leaf_green:     "#556B3A"   # přírodní zeleň pro citronové lístky
+  text_dark:      "#102B50"   # hlavní tmavý text
+  text_muted:     "#455870"   # tlumený text pro doplňující popisky
 
 # ── Dary ─────────────────────────────────────────────────────
 gifts:
   description: "Největším darem je pro nás vaše přítomnost! Pokud nás ale chcete obdarovat, budeme rádi za finanční příspěvek na naše líbánky."
-  type: "monetary"     # monetary | registry | none
-  # registry_url: ""   # pokud byste přidali registr dárků
+  type: "monetary"
 
 # ── Děti & mazlíčci ─────────────────────────────────────────
 pets:
-  allowed_with_consultation: true
   note: "Své zvířecí mazlíčky nechte prosím doma."
 
 # ── Aby vás nic nepřekvapilo ──────────────────────────────────
-# Praktické upozornění pro hosty — přidávejte položky do seznamu.
 surprises:
   title: "Aby vás nic nepřekvapilo"
   entries:
     - title: "Obřad je venku"
       description: "Obřad se koná pod širým nebem — v případě deště budeme mít připravené deštníky, nemusíte si nosit vlastní."
-
-    # Sem můžeš přidávat další položky, např.:
-    # - title: "Večerní oheň"
-    #   description: "Na večer bude připravené ohniště — vezměte si teplejší vrstvu."
+    - title: "Trávník & obuv"
+      description: "Areál statku je travnatý, proto dámy ocení širší podpatky nebo společenské klínky."
+    - title: "Zvířecí mazlíčci"
+      description: "Své čtyřnohé mazlíčky nechte prosím doma."
 
 # ── Kontakty na den D ────────────────────────────────────────
-# (Svědkové / koordinátoři — aby hosté nevolali novomanželům)
 contacts:
   - name: "Séba"
     phone: "+420 776 424 916"
@@ -126,13 +113,12 @@ contacts:
 
 # ── Soukromí & přístup ───────────────────────────────────────
 privacy:
-  method: "unlisted"   # unlisted | password | encrypted
+  method: "unlisted"
   robots_noindex: true
-  # password: ""       # jen pokud method == "password"
 
 # ── Doména & hosting ─────────────────────────────────────────
 site:
-  domain: "kacirici2027.cz"          # Zatím placeholder — viz diskuze o doméně
-  base_url: "/"                      # Kořenová cesta (změnit na "/repo-name/" pro GH Pages bez vlastní domény)
-  title: "Kačí & Ričí — Svatba 2027"
-  meta_description: "Svatební web Kačí a Ričího — 12. června 2027, Statek P22."
+  domain: "kacirici2027.cz"
+  base_url: "/"
+  title: "Kačí & Ričí — 12. června 2027"
+  meta_description: "Svatební web Kačí & Ričí — 12. června 2027, Statek P22."

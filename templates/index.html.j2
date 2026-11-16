@@ -10,377 +10,510 @@
     <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
     {% endif %}
 
-    <!-- Google Fonts: Caveat (rukopis), Montserrat (čistý text), Cormorant Garamond (detail) -->
+    <!-- Google Fonts: Pinyon Script & Alex Brush (Elegant cursive), Cormorant Garamond (Editorial serif), Plus Jakarta Sans (Clean modern text) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Pinyon+Script&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     {# ── Barevná paleta jako CSS proměnné ── #}
     <style>
         :root {
-            --color-primary:        {{ colors.primary }};
-            --color-secondary:      {{ colors.secondary }};
-            --color-yellow-soft:    {{ colors.yellow_soft }};
-            --color-yellow-hover:   {{ colors.yellow_hover }};
-            --color-bg:             {{ colors.background }};
-            --color-backdrop:       {{ colors.page_backdrop }};
-            --color-text:           {{ colors.text }};
+            --color-navy:           {{ colors.navy }};
+            --color-blue-royal:     {{ colors.blue_royal }};
+            --color-lemon:          {{ colors.lemon }};
+            --color-lemon-dark:     {{ colors.lemon_dark }};
+            --color-ivory:          {{ colors.ivory }};
+            --color-leaf-green:     {{ colors.leaf_green }};
+            --color-text-dark:      {{ colors.text_dark }};
             --color-text-muted:     {{ colors.text_muted }};
-            --color-border:         {{ colors.border }};
-            --color-border-dark:    {{ colors.border_dark }};
         }
     </style>
-    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="static/style.css?v={{ _build.timestamp | replace(':', '') | replace('-', '') | replace('.', '') }}">
 </head>
 <body>
 
-    <div class="page-container">
-        <div class="invite-canvas">
+    {# ═══════════════════════════════════════════════ #}
+    {# 1. HERO SECTION                                 #}
+    {# ═══════════════════════════════════════════════ #}
+    <header id="uvod" class="hero-section">
+        <div class="hero-container">
+            
+            <!-- Jména novomanželů nad panáčky v jednotném elegantním psacím stylu -->
+            <h1 class="hero__names">{{ couple.name_a }} &amp; {{ couple.name_b }}</h1>
 
-            {# ═══════════════════════════════════════════════ #}
-            {# HERO SECTION                                   #}
-            {# ═══════════════════════════════════════════════ #}
-            <header id="uvod" class="section hero-section">
-                <h1 class="hero__names">{{ couple.name_a }} <span class="amp">&amp;</span> {{ couple.name_b }}</h1>
-                
-                <div class="hero__illustration">
-                    <img src="static/images/bride-groom-date.png" alt="Kačí a Ričí — 12. 6. 2027" width="220" height="252" loading="eager">
-                </div>
+            <!-- Panáčci sedící vedle sebe, držící před obličejem tabulky 12 a 06 -->
+            <div class="hero__couple-visual">
+                <img src="static/images/lego-couple-hero.png" 
+                     alt="Kačí &amp; Ričí — 12. 06. 2027" 
+                     width="520" 
+                     height="390" 
+                     loading="eager" 
+                     class="couple-img">
+            </div>
 
-                <p class="hero__intro">
-                    S velkou radostí a dojetím vás zveme, abyste s námi prožili jeden z nejkrásnějších dnů našeho života — náš svatební den.
-                </p>
-            </header>
+            <!-- Datum a místo konání -->
+            <div class="hero__meta">
+                <span class="hero__date">{{ wedding.date | czech_date }}</span>
+                <span class="hero__sep">·</span>
+                <span class="hero__venue">{{ venue.name }}</span>
+            </div>
 
-            {# ═══════════════════════════════════════════════ #}
-            {# STICKY NAV                                     #}
-            {# ═══════════════════════════════════════════════ #}
-            <nav id="nav" class="nav">
-                <ul>
-                    <li><a href="#misto">Místo</a></li>
-                    <li><a href="#program">Program</a></li>
-                    <li><a href="#ubytovani">Ubytování</a></li>
-                    <li><a href="#dress-code">Dress code</a></li>
-                    <li><a href="#dary">Dary</a></li>
-                    <li><a href="#kontakt">Kontakt</a></li>
-                </ul>
-            </nav>
+            <p class="hero__invitation">
+                Srdečně vás zveme, abyste s námi oslavili náš svatební den!
+            </p>
 
-            <main>
+            <!-- Jemný LEGO oddělovač s citronem -->
+            <div class="lemon-divider" aria-hidden="true">
+                <svg width="120" height="34" viewBox="0 0 120 34" fill="none">
+                    <!-- Realistická větvička s citronem -->
+                    <path d="M10 17H45" stroke="#102B50" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M75 17H110" stroke="#102B50" stroke-width="1.5" stroke-linecap="round"/>
+                    <!-- List vlevo -->
+                    <path d="M50 17C42 10 44 4 52 7C58 9 55 16 50 17Z" fill="#556B3A"/>
+                    <!-- Skutečný tvar citronu se špičkami na koncích -->
+                    <path d="M52 17C52 11 56 6 63 6C66 6 68 8 70 10C73 13 74 15 74 17C74 21 70 26 63 26C56 26 52 22 52 17Z" fill="#F5C928"/>
+                    <path d="M50 17C51 16 52 16 53 17C52 18 51 18 50 17Z" fill="#D49A00"/>
+                    <path d="M74 17C75 16 76 17 76 17.5C76 18 75 18 74 17Z" fill="#D49A00"/>
+                    <!-- Malý květ citroníku -->
+                    <circle cx="48" cy="12" r="2.5" fill="#FFFFFF"/>
+                    <circle cx="48" cy="12" r="1" fill="#F5C928"/>
+                </svg>
+            </div>
+        </div>
+    </header>
 
-                {# ═══════════════════════════════════════════════ #}
-                {# MÍSTO KONÁNÍ ("Vezmeme se!")                   #}
-                {# ═══════════════════════════════════════════════ #}
-                <section id="misto" class="section">
-                    <h2 class="script-title">Vezmeme se!</h2>
-                    <p class="venue-name">{{ venue.name }}</p>
-                    <p class="section-text">
-                        {{ venue.description }}
-                    </p>
-                    <div class="pill-buttons">
-                        <a href="{{ venue.maps.google }}" target="_blank" rel="noopener" class="btn btn--pill">Otevřít Google Maps</a>
-                        <a href="{{ venue.maps.mapy_cz }}" target="_blank" rel="noopener" class="btn btn--pill">Otevřít Mapy.cz</a>
+    {# ═══════════════════════════════════════════════ #}
+    {# 2. ČISTÁ STICKY NAVIGACE (BEZ RÁMEČKŮ)         #}
+    {# ═══════════════════════════════════════════════ #}
+    <nav id="nav" class="nav">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="#dulezite">Přehled</a></li>
+                <li><a href="#misto">Místo &amp; doprava</a></li>
+                <li><a href="#program">Harmonogram</a></li>
+                <li><a href="#dress-code">Dress code</a></li>
+                <li><a href="#ubytovani">Ubytování &amp; dary</a></li>
+                <li><a href="#upozorneni">Info</a></li>
+                <li><a href="#kontakt">Kontakty</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+
+        {# ═══════════════════════════════════════════════ #}
+        {# 3. HLAVNÍ INFORMACE (BEZ RÁMEČKŮ)              #}
+        {# ═══════════════════════════════════════════════ #}
+        <section id="dulezite" class="section">
+            <div class="container">
+                <div class="open-columns-3">
+                    
+                    <!-- KDY -->
+                    <div class="open-col">
+                        <div class="col-lego-art">
+                            <!-- LEGO kalendář kostička -->
+                            <svg viewBox="0 0 60 54" width="54" height="48" fill="none">
+                                <rect x="8" y="14" width="44" height="34" rx="3" fill="#102B50"/>
+                                <!-- 4 LEGO piny na horní hraně -->
+                                <circle cx="16" cy="10" r="3.5" fill="#3B72C5"/>
+                                <circle cx="26" cy="10" r="3.5" fill="#3B72C5"/>
+                                <circle cx="36" cy="10" r="3.5" fill="#3B72C5"/>
+                                <circle cx="46" cy="10" r="3.5" fill="#3B72C5"/>
+                                <rect x="14" y="22" width="32" height="20" rx="2" fill="#FFF8EC"/>
+                                <text x="30" y="37" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="14" fill="#102B50" text-anchor="middle">12. 6.</text>
+                            </svg>
+                        </div>
+                        <h2 class="col-title">Kdy?</h2>
+                        <p class="col-highlight">{{ wedding.date | czech_date }}</p>
+                        <p class="col-desc">Začátek obřadu ve {{ wedding.time }} hod.<br>Příjezd hostů od 12:00.</p>
                     </div>
 
-                    <div class="sub-block">
-                        <h3 class="sub-heading">Parkování</h3>
-                        <p class="section-text-sm">{{ parking.description }}</p>
-                        <div class="pill-buttons pill-buttons--sm">
-                            <a href="{{ parking.maps.google }}" target="_blank" rel="noopener" class="btn btn--pill btn--sm">Parkoviště — Google Maps</a>
-                            <a href="{{ parking.maps.mapy_cz }}" target="_blank" rel="noopener" class="btn btn--pill btn--sm">Parkoviště — Mapy.cz</a>
+                    <!-- KDE -->
+                    <div class="open-col">
+                        <div class="col-lego-art">
+                            <!-- LEGO ukazatel Statek P22 -->
+                            <svg viewBox="0 0 60 54" width="54" height="48" fill="none">
+                                <rect x="14" y="16" width="32" height="32" rx="3" fill="#F5C928"/>
+                                <circle cx="22" cy="12" r="3.5" fill="#D49A00"/>
+                                <circle cx="38" cy="12" r="3.5" fill="#D49A00"/>
+                                <path d="M10 20L30 6L50 20" stroke="#102B50" stroke-width="3" stroke-linecap="round"/>
+                                <circle cx="30" cy="28" r="4.5" fill="#102B50"/>
+                                <rect x="26" y="36" width="8" height="12" fill="#102B50"/>
+                            </svg>
+                        </div>
+                        <h2 class="col-title">Kde?</h2>
+                        <p class="col-highlight">{{ venue.name }}</p>
+                        <p class="col-desc">{{ venue.description }}</p>
+                        <div class="col-links">
+                            <a href="{{ venue.maps.google }}" target="_blank" rel="noopener" class="link-text">Google Maps &rarr;</a>
+                            <a href="{{ venue.maps.mapy_cz }}" target="_blank" rel="noopener" class="link-text">Mapy.cz &rarr;</a>
                         </div>
                     </div>
 
-                    <div class="sub-block">
-                        <h3 class="sub-heading">Doprava</h3>
-                        <p class="section-text-sm">{{ transport.description }}</p>
+                    <!-- DRESS CODE SHRNUTÍ -->
+                    <div class="open-col">
+                        <div class="col-lego-art">
+                            <!-- LEGO kostky modrá & žlutá -->
+                            <svg viewBox="0 0 60 54" width="54" height="48" fill="none">
+                                <rect x="10" y="24" width="22" height="24" rx="2" fill="#102B50"/>
+                                <circle cx="16" cy="20" r="3.5" fill="#3B72C5"/>
+                                <circle cx="26" cy="20" r="3.5" fill="#3B72C5"/>
+                                <rect x="28" y="16" width="22" height="32" rx="2" fill="#F5C928"/>
+                                <circle cx="34" cy="12" r="3.5" fill="#D49A00"/>
+                                <circle cx="44" cy="12" r="3.5" fill="#D49A00"/>
+                            </svg>
+                        </div>
+                        <h2 class="col-title">Barvy</h2>
+                        <p class="col-highlight">Modrá &amp; Žlutá</p>
+                        <p class="col-desc">Ponese se v nich výzdoba naší svatby.</p>
+                        <a href="#dress-code" class="link-text">Doporučené odstíny &rarr;</a>
                     </div>
-                </section>
 
-                <div class="doodle-divider">
-                    <svg width="40" height="12" viewBox="0 0 40 12" fill="none" stroke="currentColor">
-                        <path d="M2 6C12 2 16 10 26 6C31 4 35 7 38 6" stroke-width="1.2" stroke-linecap="round"/>
-                    </svg>
+                </div>
+            </div>
+        </section>
+
+        {# ═══════════════════════════════════════════════ #}
+        {# 4. MÍSTO & DOPRAVA                             #}
+        {# ═══════════════════════════════════════════════ #}
+        <section id="misto" class="section">
+            <div class="container container--narrow">
+                <div class="section-title-wrap">
+                    <h2 class="section-heading">Statek P22</h2>
+                    <p class="section-subtext">Obřad, odpolední raut i večerní oslava se odehrávají na jednom místě.</p>
                 </div>
 
-                {# ═══════════════════════════════════════════════ #}
-                {# PROGRAM DNE                                    #}
-                {# ═══════════════════════════════════════════════ #}
-                <section id="program" class="section">
-                    <h2 class="script-title">Program dne</h2>
-                    <div class="timeline">
-                        {% for event in schedule %}
-                        <div class="timeline__item">
-                            <span class="timeline__time">{{ event.time }}</span>
-                            <div class="timeline__body">
-                                <h3>{{ event.title }}</h3>
-                                {% if event.description %}
-                                <p>{{ event.description }}</p>
-                                {% endif %}
+                <div class="nav-map-buttons">
+                    <a href="{{ venue.maps.google }}" target="_blank" rel="noopener" class="btn btn--outline">
+                        Otevřít v Google Maps
+                    </a>
+                    <a href="{{ venue.maps.mapy_cz }}" target="_blank" rel="noopener" class="btn btn--outline">
+                        Otevřít v Mapy.cz
+                    </a>
+                </div>
+
+                <div class="open-details-grid">
+                    <div class="detail-block">
+                        <div class="lego-mini-art">
+                            <!-- LEGO auto pro dopravu -->
+                            <svg viewBox="0 0 72 36" width="64" height="32" fill="none">
+                                <rect x="8" y="12" width="56" height="15" rx="3" fill="#F5C928"/>
+                                <path d="M22 12L30 3H48L56 12Z" fill="#102B50"/>
+                                <rect x="32" y="6" width="14" height="6" fill="#FFF8EC"/>
+                                <circle cx="20" cy="27" r="6" fill="#102B50"/>
+                                <circle cx="20" cy="27" r="2.5" fill="#F5C928"/>
+                                <circle cx="52" cy="27" r="6" fill="#102B50"/>
+                                <circle cx="52" cy="27" r="2.5" fill="#F5C928"/>
+                                <!-- LEGO piny nahoře na kapotě -->
+                                <circle cx="14" cy="9" r="2.5" fill="#D49A00"/>
+                                <circle cx="60" cy="9" r="2.5" fill="#D49A00"/>
+                            </svg>
+                        </div>
+                        <h3 class="detail-heading">Doprava</h3>
+                        <p class="detail-body">{{ transport.description }}</p>
+                    </div>
+
+                    <div class="detail-block">
+                        <div class="lego-mini-art">
+                            <!-- LEGO parkovací značka -->
+                            <svg viewBox="0 0 50 36" width="44" height="32" fill="none">
+                                <rect x="12" y="4" width="26" height="28" rx="3" fill="#3B72C5"/>
+                                <text x="25" y="24" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="18" fill="#FFF8EC" text-anchor="middle">P</text>
+                                <circle cx="25" cy="2" r="2.5" fill="#102B50"/>
+                            </svg>
+                        </div>
+                        <h3 class="detail-heading">Parkování</h3>
+                        <p class="detail-body">{{ parking.description }}</p>
+                        <div class="detail-links">
+                            <a href="{{ parking.maps.google }}" target="_blank" rel="noopener" class="link-text">Parkoviště — Google Maps &rarr;</a>
+                            <a href="{{ parking.maps.mapy_cz }}" target="_blank" rel="noopener" class="link-text">Parkoviště — Mapy.cz &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {# ═══════════════════════════════════════════════ #}
+        {# 5. HARMONOGRAM (ZAPADAJÍCÍ LEGO KOSTIČKY)      #}
+        {# ═══════════════════════════════════════════════ #}
+        <section id="program" class="section">
+            <div class="container container--narrow">
+                <div class="section-title-wrap">
+                    <h2 class="section-heading">Harmonogram</h2>
+                    <p class="section-subtext">Jak do sebe poskládáme svatební den</p>
+                </div>
+
+                <!-- Sloupec do sebe zapadajících LEGO kostiček -->
+                <div class="lego-interlocking-timeline">
+                    {% for event in schedule %}
+                    <div class="lego-brick-row lego-brick-row--{{ event.color }}">
+                        
+                        <!-- Vizuální LEGO kostka, která do sebe zapadá s další kostkou -->
+                        <div class="brick-joint-visual">
+                            <div class="brick-body">
+                                <div class="brick-studs-top">
+                                    <span class="stud"></span>
+                                    <span class="stud"></span>
+                                </div>
+                                <div class="brick-core">
+                                    <span class="brick-time">{{ event.time }}</span>
+                                </div>
+                                <div class="brick-connector-bottom"></div>
                             </div>
                         </div>
-                        {% endfor %}
-                    </div>
-                </section>
 
-                <div class="doodle-divider">
-                    <svg width="40" height="12" viewBox="0 0 40 12" fill="none" stroke="currentColor">
-                        <path d="M2 6C12 2 16 10 26 6C31 4 35 7 38 6" stroke-width="1.2" stroke-linecap="round"/>
-                    </svg>
+                        <!-- Text položky harmonogramu -->
+                        <div class="brick-content">
+                            <h3 class="brick-title">{{ event.title }}</h3>
+                            {% if event.description %}
+                            <p class="brick-desc">{{ event.description }}</p>
+                            {% endif %}
+                        </div>
+
+                    </div>
+                    {% endfor %}
                 </div>
 
-                {# ═══════════════════════════════════════════════ #}
-                {# DRESS CODE                                     #}
-                {# ═══════════════════════════════════════════════ #}
-                <section id="dress-code" class="section">
-                    <h2 class="script-title">Dress code</h2>
+                <p class="timeline-note">Časy jsou orientační, budeme se řídit pohodou a letním dnem.</p>
+            </div>
+        </section>
+
+        {# ═══════════════════════════════════════════════ #}
+        {# 6. DRESS CODE (MODRÁ & ŽLUTÁ, BEZ RÁMEČKŮ)    #}
+        {# ═══════════════════════════════════════════════ #}
+        <section id="dress-code" class="section">
+            <div class="container container--narrow">
+                <div class="section-title-wrap">
+                    <h2 class="section-heading">Dress code</h2>
                     
-                    <div class="section-icon">
-                        <!-- Ruční skica obleku a šatů -->
-                        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
-                            <!-- Ramínko a šaty -->
-                            <path d="M38 18L44 24L52 23L50 50L38 52L38 24Z"/>
-                            <path d="M44 14C44 12 46 11 47 13C48 15 45 17 44 18"/>
-                            <path d="M42 24L46 51"/>
-                            <!-- Pánský oblek -->
-                            <path d="M14 22L20 18L26 22L28 48L12 48L14 22Z"/>
-                            <path d="M20 14C20 12 22 11 23 13C24 15 21 17 20 18"/>
-                            <path d="M17 22L20 30L23 22"/>
-                            <path d="M20 30L20 48"/>
+                    <!-- LEGO oblek & šaty z lega -->
+                    <div class="lego-attire-art" aria-hidden="true">
+                        <svg viewBox="0 0 120 70" width="110" height="65" fill="none">
+                            <!-- LEGO ženich oblek vlevo -->
+                            <rect x="18" y="18" width="34" height="42" rx="3" fill="#102B50"/>
+                            <!-- LEGO piny u ramen -->
+                            <circle cx="26" cy="14" r="3.5" fill="#3B72C5"/>
+                            <circle cx="44" cy="14" r="3.5" fill="#3B72C5"/>
+                            <!-- Bílá košile a žlutý motýlek -->
+                            <path d="M30 18L35 28L40 18" fill="#FFF8EC"/>
+                            <polygon points="32,23 38,27 38,23 32,27" fill="#F5C928"/>
+                            <circle cx="35" cy="25" r="1.5" fill="#D49A00"/>
+                            
+                            <!-- LEGO nevěsta šaty vpravo -->
+                            <path d="M72 20L84 18L96 20L104 60H64L72 20Z" fill="#FFF8EC" stroke="#102B50" stroke-width="1.5"/>
+                            <circle cx="76" cy="14" r="3.5" fill="#F5C928"/>
+                            <circle cx="92" cy="14" r="3.5" fill="#F5C928"/>
+                            <!-- Žlutý pas / stuha -->
+                            <rect x="71" y="32" width="26" height="4" fill="#F5C928"/>
                         </svg>
                     </div>
 
-                    <p class="script-subtitle">{{ dress_code.style }}</p>
-                    <p class="section-text">{{ dress_code.description }}</p>
-                    
-                    <p class="warning-note">
+                    <p class="dress-code-prose">
+                        {{ dress_code.description }}
+                    </p>
+
+                    <p class="dress-code-warning">
                         {{ dress_code.terrain_warning }}
                     </p>
-
-                    <!-- Paletka barev přesně jako na předloze -->
-                    <div class="color-palette">
-                        <p class="color-palette__title">Barevná inspirace pro hosty</p>
-                        <div class="color-palette__dots">
-                            {% for c in dress_code.palette %}
-                            <div class="color-palette__item">
-                                <span class="color-palette__dot" style="background-color: {{ c.hex }};" title="{{ c.name }}"></span>
-                                <span class="color-palette__name">{{ c.name }}</span>
-                            </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </section>
-
-                <div class="doodle-divider">
-                    <svg width="40" height="12" viewBox="0 0 40 12" fill="none" stroke="currentColor">
-                        <path d="M2 6C12 2 16 10 26 6C31 4 35 7 38 6" stroke-width="1.2" stroke-linecap="round"/>
-                    </svg>
                 </div>
 
-                {# ═══════════════════════════════════════════════ #}
-                {# UBYTOVÁNÍ                                      #}
-                {# ═══════════════════════════════════════════════ #}
-                <section id="ubytovani" class="section">
-                    <h2 class="script-title">Ubytování</h2>
+                <!-- Doporučené odstíny jako čisté LEGO destičky -->
+                <div class="palette-grid">
+                    {% for c in dress_code.palette %}
+                    <div class="palette-item">
+                        <div class="lego-swatch-brick" style="background-color: {{ c.hex }};">
+                            <span class="swatch-stud-round"></span>
+                            <span class="swatch-stud-round"></span>
+                        </div>
+                        <span class="palette-label">{{ c.name }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
 
-                    <div class="section-icon">
-                        <!-- Skica stanu v přírodě -->
-                        <svg width="60" height="52" viewBox="0 0 60 52" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 46L26 12L46 46H6Z"/>
-                            <path d="M26 12L54 44L46 46"/>
-                            <path d="M26 12V46"/>
-                            <path d="M21 46L26 34L31 46"/>
-                            <!-- Jemné hvězdičky / tráva -->
-                            <path d="M2 48C5 47 7 47 10 48"/>
-                            <path d="M48 48C51 47 54 47 57 48"/>
-                            <path d="M48 10L49 13L52 14L49 15L48 18L47 15L44 14L47 13L48 10Z" fill="currentColor"/>
+        {# ═══════════════════════════════════════════════ #}
+        {# 7. UBYTOVÁNÍ & DARY (BEZ OHRANIČENÍ)           #}
+        {# ═══════════════════════════════════════════════ #}
+        <section id="ubytovani" class="section">
+            <div class="container container--narrow">
+                
+                <!-- Ubytování: Stany & Penzion -->
+                <div class="open-section-block">
+                    <div class="lego-art-center" aria-hidden="true">
+                        <!-- LEGO stan -->
+                        <svg viewBox="0 0 90 60" width="80" height="54" fill="none">
+                            <polygon points="15,50 45,14 75,50" fill="#F5C928"/>
+                            <polygon points="45,14 75,50 85,50 55,14" fill="#D49A00"/>
+                            <!-- Vstup do stanu -->
+                            <polygon points="38,50 45,30 52,50" fill="#102B50"/>
+                            <!-- LEGO piny nahoře na hřebeni stanu -->
+                            <circle cx="45" cy="10" r="3.5" fill="#102B50"/>
+                            <circle cx="53" cy="10" r="3.5" fill="#102B50"/>
+                            <!-- Kolíky -->
+                            <line x1="12" y1="50" x2="6" y2="54" stroke="#102B50" stroke-width="2"/>
+                            <line x1="85" y1="50" x2="91" y2="54" stroke="#102B50" stroke-width="2"/>
                         </svg>
                     </div>
 
-                    <p class="section-text lead-text">{{ accommodation.description }}</p>
-                </section>
-
-                <div class="doodle-divider">
-                    <svg width="40" height="12" viewBox="0 0 40 12" fill="none" stroke="currentColor">
-                        <path d="M2 6C12 2 16 10 26 6C31 4 35 7 38 6" stroke-width="1.2" stroke-linecap="round"/>
-                    </svg>
+                    <h2 class="section-heading">Ubytování</h2>
+                    <p class="open-prose">{{ accommodation.description }}</p>
+                    <p class="open-subprose">{{ accommodation.pension_note }}</p>
                 </div>
 
-                {# ═══════════════════════════════════════════════ #}
-                {# DARY                                           #}
-                {# ═══════════════════════════════════════════════ #}
-                <section id="dary" class="section">
-                    <h2 class="script-title">Svatební dary</h2>
+                <div class="subtle-divider" aria-hidden="true">
+                    <span></span>
+                </div>
 
-                    <div class="section-icon">
-                        <!-- Skica dárkových krabiček s mašlí -->
-                        <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
-                            <!-- Spodní krabička -->
-                            <rect x="12" y="28" width="32" height="22" rx="1"/>
-                            <line x1="28" y1="28" x2="28" y2="50"/>
-                            <line x1="12" y1="36" x2="44" y2="36"/>
-                            <!-- Horní krabička -->
-                            <rect x="16" y="16" width="24" height="12" rx="1"/>
-                            <line x1="28" y1="16" x2="28" y2="28"/>
+                <!-- Svatební dary -->
+                <div id="dary" class="open-section-block">
+                    <div class="lego-art-center" aria-hidden="true">
+                        <!-- LEGO dárková krabička -->
+                        <svg viewBox="0 0 70 60" width="64" height="54" fill="none">
+                            <rect x="15" y="24" width="40" height="28" rx="2" fill="#3B72C5"/>
+                            <!-- Žlutá stuha -->
+                            <rect x="31" y="24" width="8" height="28" fill="#F5C928"/>
+                            <rect x="15" y="34" width="40" height="7" fill="#F5C928"/>
+                            <!-- Víko krabičky -->
+                            <rect x="11" y="18" width="48" height="8" rx="1" fill="#102B50"/>
+                            <!-- LEGO piny nahoře -->
+                            <circle cx="26" cy="14" r="3.5" fill="#F5C928"/>
+                            <circle cx="44" cy="14" r="3.5" fill="#F5C928"/>
                             <!-- Mašlička -->
-                            <path d="M28 16C24 10 20 12 24 15C26 16 28 16 28 16Z"/>
-                            <path d="M28 16C32 10 36 12 32 15C30 16 28 16 28 16Z"/>
-                            <!-- Padající stuhy -->
-                            <path d="M26 16C23 18 21 21 20 25"/>
-                            <path d="M30 16C33 18 35 21 36 25"/>
+                            <path d="M35 18C30 11 23 13 28 17C31 18 35 18 35 18Z" fill="#F5C928"/>
+                            <path d="M35 18C40 11 47 13 42 17C39 18 35 18 35 18Z" fill="#F5C928"/>
                         </svg>
                     </div>
 
-                    <p class="section-text">{{ gifts.description }}</p>
-                </section>
-
-                <div class="doodle-divider">
-                    <svg width="40" height="12" viewBox="0 0 40 12" fill="none" stroke="currentColor">
-                        <path d="M2 6C12 2 16 10 26 6C31 4 35 7 38 6" stroke-width="1.2" stroke-linecap="round"/>
-                    </svg>
+                    <h2 class="section-heading">Svatební dary</h2>
+                    <p class="open-prose">{{ gifts.description }}</p>
                 </div>
 
-                {# ═══════════════════════════════════════════════ #}
-                {# ABY VÁS NIC NEPŘEKVAPILO                      #}
-                {# ═══════════════════════════════════════════════ #}
-                <section id="pozor" class="section">
-                    <h2 class="script-title">{{ surprises.title }}</h2>
+            </div>
+        </section>
 
-                    <div class="section-icon">
-                        <!-- Skica deštníku s kapkami deště -->
-                        <svg width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M10 28C10 17 18 10 28 10C38 10 46 17 46 28C41 27 36 29 28 28C20 29 15 27 10 28Z"/>
-                            <path d="M28 28V44C28 47 25 48 24 46"/>
-                            <path d="M28 8V10"/>
-                            <!-- Dešťové kapky -->
-                            <path d="M14 36L12 40"/>
-                            <path d="M42 36L44 40"/>
-                            <path d="M36 42L35 46"/>
+        {# ═══════════════════════════════════════════════ #}
+        {# 8. ABY VÁS NIC NEPŘEKVAPILO (BEZ RÁMEČKŮ)      #}
+        {# ═══════════════════════════════════════════════ #}
+        <section id="upozorneni" class="section">
+            <div class="container container--narrow">
+                <div class="section-title-wrap">
+                    <div class="lego-art-center" aria-hidden="true">
+                        <!-- LEGO deštník / počasí -->
+                        <svg viewBox="0 0 70 54" width="60" height="46" fill="none">
+                            <path d="M12 30C12 17 22 10 35 10C48 10 58 17 58 30H12Z" fill="#F5C928"/>
+                            <circle cx="35" cy="7" r="3" fill="#102B50"/>
+                            <path d="M35 30V44C35 47 32 48 30 46" stroke="#102B50" stroke-width="2.5" stroke-linecap="round"/>
+                            <!-- Kapky jako modré LEGO dílky -->
+                            <rect x="18" y="38" width="4" height="6" rx="2" fill="#3B72C5"/>
+                            <rect x="48" y="38" width="4" height="6" rx="2" fill="#3B72C5"/>
                         </svg>
                     </div>
-
-                    <div class="surprises-list">
-                        {% for item in surprises.entries %}
-                        <div class="surprise-entry">
-                            <h3 class="surprise-entry__title">{{ item.title }}</h3>
-                            <p class="section-text">{{ item.description }}</p>
-                        </div>
-                        {% endfor %}
-                    </div>
-                </section>
-
-                <div class="doodle-divider">
-                    <svg width="40" height="12" viewBox="0 0 40 12" fill="none" stroke="currentColor">
-                        <path d="M2 6C12 2 16 10 26 6C31 4 35 7 38 6" stroke-width="1.2" stroke-linecap="round"/>
-                    </svg>
+                    <h2 class="section-heading">{{ surprises.title }}</h2>
                 </div>
 
-                {# ═══════════════════════════════════════════════ #}
-                {# KONTAKTY                                       #}
-                {# ═══════════════════════════════════════════════ #}
-                <section id="kontakt" class="section">
-                    <h2 class="script-title">Kontakty</h2>
-
-                    <div class="section-icon">
-                        <!-- Skica retro telefonu -->
-                        <svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
-                            <!-- Sluchátko -->
-                            <path d="M12 18C15 14 37 14 40 18C42 21 38 24 35 22C33 20 31 20 26 20C21 20 19 20 17 22C14 24 10 21 12 18Z"/>
-                            <!-- Tělo telefonu -->
-                            <path d="M16 26H36L40 40H12L16 26Z"/>
-                            <circle cx="26" cy="33" r="4"/>
-                            <!-- Šňůra -->
-                            <path d="M14 34C11 36 10 39 12 42C13 44 15 44 14 46"/>
-                        </svg>
-                    </div>
-
-                    <p class="section-text contacts-intro">Náš svědek a svědkyně vám v den svatby rádi se vším pomohou a zodpoví všechny otázky.</p>
-                    
-                    <div class="contacts-grid">
-                        {% for contact in contacts %}
-                        <div class="contact-card">
-                            <h3 class="contact-name">{{ contact.name }}</h3>
-                            <p class="contact-role">{{ contact.role }}</p>
-                            <a href="tel:{{ contact.phone | replace(' ', '') }}" class="btn btn--pill btn--contact">
-                                Zavolat: {{ contact.phone }}
-                            </a>
+                <div class="surprises-open-list">
+                    {% for item in surprises.entries %}
+                    <div class="surprise-open-row">
+                        <span class="surprise-bullet-brick"></span>
+                        <div class="surprise-text">
+                            <h3>{{ item.title }}</h3>
+                            <p>{{ item.description }}</p>
                         </div>
-                        {% endfor %}
                     </div>
-                </section>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
 
-                <div class="doodle-divider">
-                    <svg width="40" height="12" viewBox="0 0 40 12" fill="none" stroke="currentColor">
-                        <path d="M2 6C12 2 16 10 26 6C31 4 35 7 38 6" stroke-width="1.2" stroke-linecap="round"/>
-                    </svg>
+        {# ═══════════════════════════════════════════════ #}
+        {# 9. KONTAKTY NA DEN D                           #}
+        {# ═══════════════════════════════════════════════ #}
+        <section id="kontakt" class="section">
+            <div class="container container--narrow">
+                <div class="section-title-wrap">
+                    <h2 class="section-heading">Kontakty</h2>
+                    <p class="section-subtext">
+                        V den svatby nechte novomanžele slavit a v případě dotazů se obracejte na naše skvělé svědky:
+                    </p>
                 </div>
 
-                {# ═══════════════════════════════════════════════ #}
-                {# ODPOČET ČASU ("Uvidíme se za...")               #}
-                {# ═══════════════════════════════════════════════ #}
-                <section id="odpocet" class="section countdown-section">
-                    <div class="countdown-frame">
-                        <h2 class="countdown-title">Uvidíme se za...</h2>
-                        <div id="countdown" class="countdown-grid" data-target="{{ wedding.datetime }}">
-                            <div class="countdown-item">
-                                <span class="countdown-num" id="cd-days">00</span>
-                                <span class="countdown-label">Dní</span>
-                            </div>
-                            <div class="countdown-sep">:</div>
-                            <div class="countdown-item">
-                                <span class="countdown-num" id="cd-hours">00</span>
-                                <span class="countdown-label">Hodin</span>
-                            </div>
-                            <div class="countdown-sep">:</div>
-                            <div class="countdown-item">
-                                <span class="countdown-num" id="cd-minutes">00</span>
-                                <span class="countdown-label">Minut</span>
-                            </div>
-                            <div class="countdown-sep">:</div>
-                            <div class="countdown-item">
-                                <span class="countdown-num" id="cd-seconds">00</span>
-                                <span class="countdown-label">Sekund</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                {# ═══════════════════════════════════════════════ #}
-                {# ZÁVĚR & KALENDÁŘ                               #}
-                {# ═══════════════════════════════════════════════ #}
-                <section class="section closing-section">
-                    <div class="closing-heart">
-                        <!-- Skica srdíčka s mašličkou -->
-                        <svg width="72" height="72" viewBox="0 0 72 72" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M36 60C36 60 12 44 12 26C12 18 18 12 26 12C31 12 34 15 36 18C38 15 41 12 46 12C54 12 60 18 60 26C60 44 36 60 36 60Z"/>
-                            <!-- Malá větvička / list uvnitř -->
-                            <path d="M36 28C36 38 32 44 26 48"/>
-                            <path d="M34 34C37 33 39 30 38 28"/>
-                            <path d="M33 40C36 39 37 36 36 34"/>
-                        </svg>
-                    </div>
-
-                    <h2 class="closing-title">S láskou, {{ couple.name_a }} &amp; {{ couple.name_b }}</h2>
-                    <p class="closing-date">{{ wedding.date | czech_date }} · {{ venue.name }}</p>
-
-                    <div class="closing-action">
-                        <a href="{{ _ics_file }}" class="btn btn--pill btn--primary" download>
-                            Uložit datum do kalendáře
+                <div class="contacts-open-grid">
+                    {% for contact in contacts %}
+                    <div class="contact-open-item">
+                        <span class="contact-stud-icon"></span>
+                        <h3 class="contact-person-name">{{ contact.name }}</h3>
+                        <span class="contact-person-role">{{ contact.role }}</span>
+                        <a href="tel:{{ contact.phone | replace(' ', '') }}" class="btn btn--phone">
+                            Zavolat: {{ contact.phone }}
                         </a>
                     </div>
-                </section>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
 
-            </main>
+        {# ═══════════════════════════════════════════════ #}
+        {# 10. ŽIVÝ ODPOČET ČASU                          #}
+        {# ═══════════════════════════════════════════════ #}
+        <section id="odpocet" class="section countdown-clean-section">
+            <div class="container container--narrow">
+                <p class="countdown-pretitle">Uvidíme se za...</p>
+                
+                <div id="countdown" class="countdown-open-grid" data-target="{{ wedding.datetime }}">
+                    <div class="cd-item">
+                        <span class="cd-number" id="cd-days">00</span>
+                        <span class="cd-title">Dní</span>
+                    </div>
+                    <span class="cd-sep">:</span>
+                    <div class="cd-item">
+                        <span class="cd-number" id="cd-hours">00</span>
+                        <span class="cd-title">Hodin</span>
+                    </div>
+                    <span class="cd-sep">:</span>
+                    <div class="cd-item">
+                        <span class="cd-number" id="cd-minutes">00</span>
+                        <span class="cd-title">Minut</span>
+                    </div>
+                    <span class="cd-sep">:</span>
+                    <div class="cd-item">
+                        <span class="cd-number" id="cd-seconds">00</span>
+                        <span class="cd-title">Sekund</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            {# ═══════════════════════════════════════════════ #}
-            {# FOOTER                                         #}
-            {# ═══════════════════════════════════════════════ #}
-            <footer class="footer">
-                <p>{{ couple.name_a }} &amp; {{ couple.name_b }} 2027</p>
-            </footer>
+    </main>
 
-        </div><!-- /.invite-canvas -->
-    </div><!-- /.page-container -->
+    {# ═══════════════════════════════════════════════ #}
+    {# 11. ZÁVĚR & PATIČKA (SRDÍČKO PŘED OBLIČEJEM)   #}
+    {# ═══════════════════════════════════════════════ #}
+    <footer class="closing-footer">
+        <div class="container container--narrow">
+            
+            <!-- Panáčci sedící vedle sebe, držící společně srdíčko před obličejem: "Těšíme se na vás 12.6.2027" -->
+            <div class="closing__couple-visual">
+                <img src="static/images/lego-couple-heart.png" 
+                     alt="Těšíme se na vás — 12. 6. 2027" 
+                     width="480" 
+                     height="360" 
+                     loading="lazy" 
+                     class="couple-heart-img">
+            </div>
+
+            <div class="closing__calendar-box">
+                <a href="{{ _ics_file }}" class="btn btn--save-calendar" download>
+                    Uložit datum 12. 6. 2027 do kalendáře (.ics)
+                </a>
+            </div>
+
+            <div class="footer-names-line">
+                <p class="script-footer-names">{{ couple.name_a }} &amp; {{ couple.name_b }}</p>
+                <p class="footer-sub-text">{{ wedding.date | czech_date }} · {{ venue.name }}</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="static/main.js"></script>
 </body>
