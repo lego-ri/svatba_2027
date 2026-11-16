@@ -18,7 +18,7 @@ wedding:
 # ── Místo konání ─────────────────────────────────────────────
 venue:
   name: "Statek P22"
-  description: "Vše se koná na jednom místě — obřad, hostina i párty."
+  description: "Vše se koná na jednom místě, obřad, hostina i párty."
   maps:
     google: "https://maps.app.goo.gl/c11qXTEbDV7oo6Tc9"
     mapy_cz: "https://mapy.com/s/fobutovojo"
@@ -38,28 +38,25 @@ transport:
 schedule:
   - time: "12:00–12:30"
     title: "Příjezd hostů"
-    description: "Uvítání a welcome drink na dvoře statku."
-    color: "yellow"
+    description: "Uvítání a welcome drink na dvoře statku"
 
   - time: "13:00"
     title: "Svatební obřad"
-    description: "Řekneme si své ANO pod širým nebem na trávníku."
-    color: "navy"
+    description: "Řekneme si své ANO pod širým nebem na trávníku"
 
   - time: "14:30"
     title: "Odpolední raut & oslava"
-    description: "Skvělé jídlo, přípitky, krájení dortu a společná zábava."
-    color: "blue"
+    description: "Skvělé jídlo, krájení dortu, přípitky a společná zábava"
 
 # ── Ubytování ────────────────────────────────────────────────
 accommodation:
-  description: "Spaní je ve stanech přímo na zahradě statku, pokud vám nebylo specificky řečeno jinak. Domluvte se mezi sebou a přivezte si své stany."
+  description: "Spaní je ve stanech přímo na zahradě statku. Prosíme, aby si hosté přivezli svůj stan. K dispozici bude také jedno iglú na přespání a jeden velký stan."
   pension_note: "Pokud by někdo potřeboval zařídit ubytování v penzionu, ozvěte se nám — mějte však prosím na paměti, že penzion není v docházkové vzdálenosti."
 
 # ── Dress code ───────────────────────────────────────────────
 dress_code:
-  description: "Dress code není nijak předepsaný — vezměte si to, v čem se budete cítit dobře a pohodlně. Pokud byste se však chtěli sladit s výzdobou svatby, ponese se v tónech modré a žluté."
-  terrain_warning: "Obřad se koná na trávníku — dámy, doporučujeme pohodlnou obuv bez jehlových podpatků (např. klínky nebo široké podpatky)."
+  description: "Dress code není nijak předepsaný, vezměte si to, v čem se budete cítit dobře a pohodlně. Pokud byste se však chtěli sladit s výzdobou svatby, ponese se v tónech modré a žluté."
+  terrain_warning: "Obřad se koná na trávníku — dámy, doporučujeme pohodlnou obuv bez jehlových podpatků (např. klínky nebo širší podpatky)."
   palette:
     - name: "Citronová žlutá"
       hex: "#F5C928"
@@ -72,14 +69,14 @@ dress_code:
 
 # ── Barevná paleta webu ──────────────────────────────────────
 colors:
-  navy:           "#102B50"   # hluboká námořnická modř (hlavní text, kontrast)
-  blue_royal:     "#3B72C5"   # světlejší / královská modrá
-  lemon:          "#F5C928"   # zářivá citronově žlutá
-  lemon_dark:     "#D49A00"   # tmavší zlatavá žlutá
-  ivory:          "#FFF8EC"   # teplá slonová kost (hlavní podklad)
-  leaf_green:     "#556B3A"   # přírodní zeleň pro citronové lístky
-  text_dark:      "#102B50"   # hlavní tmavý text
-  text_muted:     "#455870"   # tlumený text pro doplňující popisky
+  navy:           "#102B50"
+  blue_royal:     "#3B72C5"
+  lemon:          "#F5C928"
+  lemon_dark:     "#D49A00"
+  ivory:          "#FFF8EC"
+  leaf_green:     "#556B3A"
+  text_dark:      "#102B50"
+  text_muted:     "#455870"
 
 # ── Dary ─────────────────────────────────────────────────────
 gifts:
