@@ -40,7 +40,7 @@ transport:
 # Každá položka: time (HH:MM), title, description (nepovinné), icon (nepovinné)
 # Ikony: ceremony, drinks, camera, dinner, cake, dance, party, sparkler
 schedule:
-  - time: "12:30"
+  - time: "12:00-12:30"
     title: "Příjezd hostů"
     description: "Uvítání a welcome drink."
     icon: "drinks"
@@ -50,39 +50,19 @@ schedule:
     description: ""
     icon: "ceremony"
 
-  - time: "14:00"
-    title: "Skupinové focení"
-    description: "Prosíme o trpělivost, netrvá to dlouho!"
-    icon: "camera"
-
   - time: "14:30"
-    title: "Svatební hostina"
+    title: "Odpolední raut"
     description: ""
-    icon: "dinner"
-
-  - time: "17:00"
-    title: "Krájení dortu"
-    description: ""
-    icon: "cake"
-
-  - time: "20:00"
-    title: "První tanec"
-    description: ""
-    icon: "dance"
-
-  - time: "20:30"
-    title: "Volná zábava & párty"
-    description: "Tancujte do rána!"
-    icon: "party"
+    icon: "camera"
 
 # ── Ubytování ────────────────────────────────────────────────
 accommodation:
-  description: "Spaní je ve stanech přímo na zahradě statku. Stany budou připravené na místě — stačí přijet a ubytovat se!"
+  description: "Spaní je ve stanech přímo na zahradě statku, pokud vám nebylo specificky řečeno jinak. Domluvte se mezi sebou a přivezte si své stany."
 
 # ── Dress code ───────────────────────────────────────────────
 dress_code:
   style: "Formální"
-  description: "Obřad i hostina jsou formální. Budeme moc rádi, pokud svůj oděv sladíte do teplých přírodních a zlatavých tónů."
+  description: "Obřad i hostina jsou formální. Budeme moc rádi, pokud svůj oděv sladíte do DOPLNIT"
   terrain_warning: "Obřad se koná na trávníku — dámy, doporučujeme široké podpatky, klínky nebo pohodlnou společenskou obuv."
   palette:
     - name: "Zlatavá"
@@ -117,13 +97,9 @@ gifts:
   # registry_url: ""   # pokud byste přidali registr dárků
 
 # ── Děti & mazlíčci ─────────────────────────────────────────
-children:
-  allowed: true
-  note: "Děti jsou vítány!"
-
 pets:
   allowed_with_consultation: true
-  note: "Mazlíčky prosím pouze po předchozí domluvě s námi."
+  note: "Své zvířecí mazlíčky nechte prosím doma."
 
 # ── Aby vás nic nepřekvapilo ──────────────────────────────────
 # Praktické upozornění pro hosty — přidávejte položky do seznamu.
@@ -140,7 +116,7 @@ surprises:
 # ── Kontakty na den D ────────────────────────────────────────
 # (Svědkové / koordinátoři — aby hosté nevolali novomanželům)
 contacts:
-  - name: "Seba"
+  - name: "Séba"
     phone: "+420 776 424 916"
     role: "Svědek"
 
