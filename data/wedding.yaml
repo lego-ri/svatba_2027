@@ -38,15 +38,12 @@ transport:
 schedule:
   - time: "12:00–12:30"
     title: "Příjezd hostů"
-    description: "Uvítání a welcome drink na dvoře statku"
 
   - time: "13:00"
-    title: "Svatební obřad"
-    description: "Řekneme si své ANO pod širým nebem na trávníku"
+    title: "Řekneme si ANO"
 
   - time: "14:30"
-    title: "Odpolední raut & oslava"
-    description: "Skvělé jídlo, krájení dortu, přípitky a společná zábava"
+    title: "Odpolední raut"
 
 # ── Ubytování ────────────────────────────────────────────────
 accommodation:
@@ -95,6 +92,8 @@ surprises:
       description: "Obřad se koná pod širým nebem — v případě deště budeme mít připravené deštníky, nemusíte si nosit vlastní."
     - title: "Trávník & obuv"
       description: "Areál statku je travnatý, proto dámy ocení širší podpatky nebo společenské klínky."
+    - title: "Jak s jídlem"
+      description: "Při příjezdu vám nabídneme kanapky, ve 14:30 bude oběd a od 19:00 bude grilování."
     - title: "Zvířecí mazlíčci"
       description: "Své čtyřnohé mazlíčky nechte prosím doma."
 
