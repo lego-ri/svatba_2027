@@ -228,25 +228,20 @@
 
                     <div class="nav-map-buttons">
                         <a href="{{ venue.maps.google }}" target="_blank" rel="noopener" class="btn btn--outline">
-                            Otevřít v Google Maps
+                            Statek v Google Maps
                         </a>
                         <a href="{{ venue.maps.mapy_cz }}" target="_blank" rel="noopener" class="btn btn--outline">
-                            Otevřít v Mapy.cz
+                            Statek v Mapy.cz
                         </a>
                     </div>
 
                     <div class="open-details-grid">
                         <div class="detail-block">
                             <h3 class="detail-heading">Doprava</h3>
-                            <p class="detail-body">{{ transport.description }}</p>
-                        </div>
-
-                        <div class="detail-block">
-                            <h3 class="detail-heading">Parkování</h3>
-                            <p class="detail-body">{{ parking.description }}</p>
-                            <div class="detail-links">
-                                <a href="{{ parking.maps.google }}" target="_blank" rel="noopener" class="link-text">Parkoviště — Google Maps &rarr;</a>
-                                <a href="{{ parking.maps.mapy_cz }}" target="_blank" rel="noopener" class="link-text">Parkoviště — Mapy.cz &rarr;</a>
+                            <p class="detail-body">{{ transport.description }}
+                            <div class="nav-map-buttons">
+                                <a href="{{ transport.maps.google }}" target="_blank" rel="noopener" class="btn btn--outline">Parkoviště — Google Maps</a>
+                                <a href="{{ transport.maps.mapy_cz }}" target="_blank" rel="noopener" class="btn btn--outline">Parkoviště — Mapy.cz</a>
                             </div>
                         </div>
                     </div>
@@ -277,7 +272,7 @@
                         {% for item in schedule %}
                         <div class="table-schedule-entry">
                             <span class="table-schedule-time">{{ item.time }}</span>
-                            <h3 class="table-schedule-title">{{ item.title }}</h3>
+                            <h3 class="table-schedule-title">{{ item.title | trim | replace('\n', '<br>') | safe }}</h3>
                         </div>
                         {% if not loop.last %}
                         <div class="table-schedule-line" aria-hidden="true"></div>

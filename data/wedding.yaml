@@ -23,16 +23,12 @@ venue:
     google: "https://maps.app.goo.gl/c11qXTEbDV7oo6Tc9"
     mapy_cz: "https://mapy.com/s/fobutovojo"
 
-# ── Parkování ────────────────────────────────────────────────
-parking:
-  description: "Parkování zdarma, cca 3 minuty chůze od statku."
+# ── Doprava ──────────────────────────────────────────────────
+transport:
+  description: "Organizovaná doprava není zajištěna — prosíme, přijeďte autem a zaparkujte na místě uvedeném níže (cca 3 min pěšky od statku)."
   maps:
     google: "https://maps.app.goo.gl/zrwLixNxC8QAeks89"
     mapy_cz: "https://mapy.com/s/fukecepupu"
-
-# ── Doprava ──────────────────────────────────────────────────
-transport:
-  description: "Organizovaná doprava není zajištěna — prosíme, přijeďte autem a zaparkujte na místě uvedeném výše."
 
 # ── Harmonogram dne ──────────────────────────────────────────
 schedule:
@@ -40,15 +36,15 @@ schedule:
     title: "Příjezd hostů"
 
   - time: "13:00"
-    title: "Řekneme si ANO"
+    title: "Řekneme si<br>ANO"
 
   - time: "14:30"
     title: "Odpolední raut"
 
 # ── Ubytování ────────────────────────────────────────────────
 accommodation:
-  description: "Spaní je ve stanech přímo na zahradě statku. Prosíme, aby si hosté přivezli svůj stan. K dispozici bude také jedno iglú na přespání a jeden velký stan."
-  pension_note: "Pokud by někdo potřeboval zařídit ubytování v penzionu, ozvěte se nám — mějte však prosím na paměti, že penzion není v docházkové vzdálenosti."
+  description: "Spaní je ve stanech přímo na zahradě statku. Prosíme, aby si hosté přivezli svůj stan."
+  pension_note: "Pokud by někdo potřeboval zařídit ubytování v penzionu, ozvěte se nám — mějte však prosím na paměti, že penzion není v docházkové vzdálenosti (10 min autem)."
 
 # ── Dress code ───────────────────────────────────────────────
 dress_code:
