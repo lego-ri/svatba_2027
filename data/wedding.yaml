@@ -100,13 +100,13 @@ surprises:
 
 # ── Kontakty na den D ────────────────────────────────────────
 contacts:
-  - name: "Séba"
+  - name: "Richard"
     phone: "+420 776 424 916"
-    role: "Svědek"
+    role: "Ženich"
 
-  - name: "Héďa"
+  - name: "Kateřina"
     phone: "+420 722 200 432"
-    role: "Svědkyně"
+    role: "Nevěsta"
 
 # ── Soukromí & přístup ───────────────────────────────────────
 privacy:
